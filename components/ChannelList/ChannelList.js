@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from '../styles/components/ChannelList.module.scss'
+import styles from './ChannelList.module.scss'
 import moment from 'moment'
-import Channel from './Channel';
-import logoLink from '../images/cnn.png';
+import Channel from '../Channel/Channel';
+import logoLink from '../../images/cnn.png';
 
 let today = moment().format('DD MMM');
 let tomorrow = moment().add(1,'days').format('DD MMM');

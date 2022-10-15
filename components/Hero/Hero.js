@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
-import AdImg from '../images/ad_img.jpg'
-import styles from '../styles/components/Hero.module.scss';
+import AdImg from '../../images/ad_img.jpg'
+import styles from './Hero.module.scss';
 
 const Hero = () => {
   return (

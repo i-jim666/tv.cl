@@ -5,8 +5,8 @@ import Header from '../global-components/Header'
 import Footer from '../global-components/Footer'
 
 // Components
-import Hero from '../components/Hero'
-import ChannelList from '../components/ChannelList'
+import Hero from '../components/Hero/Hero'
+import ChannelList from '../components/ChannelList/ChannelList'
 
 
 export default function Home() {

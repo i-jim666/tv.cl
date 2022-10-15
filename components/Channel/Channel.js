@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from '../styles/components/Channel.module.scss'
-import RightCaret from '../images/icons/RightCaret'
+import styles from './Channel.module.scss'
+import RightCaret from '../../images/icons/RightCaret'
 import Image from 'next/image'
-import ProgramImg from '../images/program.png'
-import Program from './Program'
+import ProgramImg from '../../images/program.png'
+import Program from '../Program/Program'
 
 const Channel = (props) => {
   return (

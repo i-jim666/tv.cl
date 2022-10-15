@@ -1,6 +1,6 @@
 import React from 'react'
-import styles from '../styles/components/Program.module.scss'
-import TimerIcon from '../images/icons/TimerIcon.svg'
+import styles from './Program.module.scss'
+import TimerIcon from '../../images/icons/TimerIcon.svg'
 import Image from 'next/image'
 
 const Program = (props) => {
