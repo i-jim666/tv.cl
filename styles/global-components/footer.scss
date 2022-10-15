@@ -1,0 +1,36 @@
+.footer{
+    background-color: #EFEFEF;
+    padding: 32px 0;
+    margin-top: 50px;
+
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo{
+        span{
+            cursor: pointer;
+        }
+    }
+
+    .links{
+        display: flex;
+        align-items: center;
+        gap: 12px 24px;
+
+        .link{
+            font-weight: 700;
+            font-size: 13px;
+            line-height: 16px;
+            color: #707A87;
+            cursor: pointer;
+            transition: 300ms all ease;
+
+            &:hover{
+                color: #282D34;
+            }
+        }
+    }
+}
