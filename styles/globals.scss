@@ -1,0 +1,83 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body{
+  background-color: #F9F9F9;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input,
+button{
+  outline: none;
+  border: none;
+  background: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
+
+.container{
+  width: 100%;
+  max-width: 968px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (max-width: 970px){
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+
+
+// fonts
+@font-face {
+  font-family: 'Apercu';
+  src: url('../public/fonts/Apercu-Regular.otf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Apercu';
+  src: url('../public/fonts/Apercu-Medium.otf');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Apercu';
+  src: url('../public/fonts/Apercu-Bold.otf');
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+body,
+input,
+p,
+div,
+span{
+  font-family: 'Apercu';
+}
+
