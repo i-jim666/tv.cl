@@ -84,3 +84,60 @@ div,
 span{
   font-family: 'Apercu';
 }
+
+
+@keyframes reveal {
+  0%{
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.channel,
+.single__program{
+  opacity: 0;
+  -webkit-animation: reveal;
+  animation: reveal;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
+@for $i from 1 through 100 {
+  .channel:nth-child(#{$i}) {
+    animation-delay: calc($i * 50ms);
+  }
+  .single__program:nth-child(#{$i}) {
+    animation-delay: calc($i * 50ms);
+  }
+}
+
+.generic__content{
+  .container{
+    max-width: 533px;
+
+    h2{
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 32px;
+      color: #282D34;
+      margin-bottom: 12px;
+    }
+
+    p{
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 22px;
+      color: #313034;
+      white-space: pre-line;
+    }
+  }
+}
+
+
+main{
+  min-height: 87vh;
+}

@@ -5,13 +5,10 @@ import SettingsIcon from '../images/icons/SettingsIcon';
 import Link from 'next/link';
 
 const Header = (props) => {
-    let shoot = () => {
-        console.log('Shooted from header');
-    }
     return (
         <div id="header" className='header'>
             <div className="container">
-                <div className="logo" onClick={shoot}>
+                <div className="logo">
                     <Link href={process.env.NEXT_PUBLIC_DOMAIN_NAME}>
                         <span>
                             <Image src={Logo} alt="Logo" />
@@ -24,7 +21,7 @@ const Header = (props) => {
                     </div>
                 </div>
                 <div className="settings__icon">
-                    <Link href="#">
+                    <Link href={process.env.NEXT_PUBLIC_DOMAIN_NAME+'/settings'}>
                         <span>
                             <SettingsIcon />
                         </span>

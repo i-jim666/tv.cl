@@ -1,8 +1,10 @@
 import React from 'react'
-import styles from './ChannelList.module.scss'
+import styles from './ChannelDetails.scss'
 import moment from 'moment'
 import TodayList from './TodayList';
 import TomorrowList from './TomorrowList';
+import logoLink from '../../images/cnn.png';
+import Image from 'next/image';
 
 let today = moment().format('DD MMM');
 let tomorrow = moment().add(1,'days').format('DD MMM');
@@ -42,18 +44,23 @@ class ChannelList extends React.Component {
         }
 
         return(
-            <div className="channel__wrapper">
+            <div className="channel__wrapper channel__details_wrapper">
                 <div className="container">
                     <div className="title__filter">
-                        <div className={`${styles.flex_container}`}>
-                            <h3 className={styles.title}>{this.props.title}</h3>
-                            <div className={`channel_filter ${styles.filter}`}>
+                        <div className={`flex_container`}>
+                            <h3 className={`title`}>
+                                <div className="logo">
+                                    <Image src={logoLink} alt="Channel logo" />
+                                </div>
+                                CNN Chile
+                            </h3>
+                            <div className={`channel_filter filter`}>
                                 <div onClick={this.showToday} className={`today ${this.state.showToday ? 'active' : ''}`}>Today, {today}</div>
                                 <div onClick={this.showTomorrow} className={`tomorrow ${this.state.showTomorrow ? 'active' : ''}`}>Tommorrow, {tomorrow}</div>
                             </div>
                         </div>
                     </div>
-                    <div className={`channels ${styles.channels}`}>
+                    <div className={`programs`}>
 
                         {render_items}
 

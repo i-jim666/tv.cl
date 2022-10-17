@@ -1,4 +1,15 @@
 .header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: #FCFCFC;
+
+    @media (max-width: 1200px){
+        display: none;
+    }
+
     padding: 14.5px 0;
     .container{
         display: flex;
@@ -59,5 +70,32 @@
         &:focus{
             border: 1px solid #282D34;
         }
+    }
+}
+
+
+.header_mob{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: #FCFCFC;
+
+    display: none;
+    @media (max-width: 1200px){
+        display: block;
+    }
+
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .right_col{
+        display: flex;
+        align-items: center;
+        gap: 20px;
     }
 }
