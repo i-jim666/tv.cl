@@ -23,15 +23,17 @@ const Channel = (props) => {
 
         <div className={`content ${styles.content}`}>
 
-            <div className={`box__header ${styles.box__header}`}>
-                <div className="logo">
-                    <Image src={props.logoLink} alt="channel logo"></Image>
+            <Link href={process.env.NEXT_PUBLIC_DOMAIN_NAME+'/channel-details'}>
+                <div className={`box__header ${styles.box__header}`}>
+                    <div className="logo">
+                        <Image src={props.logoLink} alt="channel logo"></Image>
+                    </div>
+                    <p className="channel_name">
+                        {props.channelName}
+                    </p>
+                    <RightCaret />
                 </div>
-                <p className="channel_name">
-                    {props.channelName}
-                </p>
-                <RightCaret />
-            </div>
+            </Link>
 
             <Image src={ProgramImg} alt="Program image"></Image>
             
