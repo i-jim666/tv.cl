@@ -22,7 +22,6 @@ const OrderChannel = (props) => {
       </div>
     )
   }
-  
   export default OrderChannel
 
 
