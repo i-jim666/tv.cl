@@ -7,21 +7,17 @@ import Program from '../Program/Program'
 import Link from 'next/link'
 import moment from 'moment/moment'
 
-
-var current_chile_time = moment.utc().subtract({'hours': 3}).format('HH:mm');
-// console.log(current_chile_time)
-
 const Channel = (props) => {
 
   var first_program = props.programList.shift();
   var rest_of_the_program = props.programList;
   var prog_list = [];
 
-  var first_program_time = moment(first_program.program_time, 'HH:mm:ss').format('HH:mm')
+  var first_program_time = moment(first_program.program_time, 'hh:mm:ss').format('HH:mm')
 
   for(let i=0; i<4; i++){
 
-    let modified_time = moment(rest_of_the_program[i].program_time, 'HH:mm:ss').format('HH:mm')
+    let modified_time = moment(rest_of_the_program[i].program_time, 'hh:mm:ss').format('HH:mm')
 
     prog_list.push(
         <Program
@@ -34,9 +30,9 @@ const Channel = (props) => {
   }
   var progress_bar = '';
   if(props.tomorrowList == false){
-    progress_bar = <div className={`progress ${styles.progress}`}>
-                        <div></div>
-                    </div>
+    // progress_bar = <div className={`progress ${styles.progress}`}>
+    //                     <div></div>
+    //                 </div>
   }
 
   return (
@@ -77,7 +73,7 @@ const Channel = (props) => {
                 hasIcon = {(props.tomorrowList == true)? false : true}
             />
 
-            {/* {progress_bar} */}
+            {progress_bar}
 
             {prog_list}            
 

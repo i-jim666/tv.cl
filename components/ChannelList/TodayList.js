@@ -18,7 +18,7 @@ const TodayList = () => {
     try{
         var axios = require('axios');
         var data = {
-          "publish_date": "today"
+          "publish_date": "tomorrow"
         };
         
         var config = {

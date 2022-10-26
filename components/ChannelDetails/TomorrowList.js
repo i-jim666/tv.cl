@@ -42,8 +42,8 @@ const TomorrowList = () => {
           prog_arr.push(<SingleProgram
             id = {elem.program_id}
             programName = {elem.program_title}
-            programType = {`Test type`}
-            programDesc = {`Test description`}
+            programType = {elem.program_type}
+            programDesc = {elem.program_desc}
             programTime = {elem.program_time}
           />)
         })
