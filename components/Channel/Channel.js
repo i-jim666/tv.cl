@@ -7,18 +7,27 @@ import Program from '../Program/Program'
 import Link from 'next/link'
 import moment from 'moment/moment'
 
+
+var current_chile_time = moment.utc().subtract({'hours': 3}).format('HH:mm');
+console.log(current_chile_time)
+
 const Channel = (props) => {
 
   var first_program = props.programList.shift();
   var rest_of_the_program = props.programList;
   var prog_list = [];
 
+  var first_program_time = moment(first_program.program_time, 'HH:mm:ss').format('HH:mm')
+
   for(let i=0; i<4; i++){
+
+    let modified_time = moment(rest_of_the_program[i].program_time, 'HH:mm:ss').format('HH:mm')
+
     prog_list.push(
         <Program
             key = {rest_of_the_program[i].program_id} 
             programName = {rest_of_the_program[i].program_title}
-            time = {rest_of_the_program[i].program_time}
+            time = {modified_time}
             hasIcon = "false"
         />
     )
@@ -32,7 +41,7 @@ const Channel = (props) => {
 
   return (
     <div className={`channel ${styles.channel}`}>
-        <Link href={process.env.NEXT_PUBLIC_DOMAIN_NAME+'/channel-details'}>
+        <Link href={props.channelLink}>
             <div className={`box__header ${styles.box__header}`}>
                 <div className="logo">
                     <Image src={props.logoLink} alt="channel logo" width={48} height={48} objectFit="contain" />
@@ -46,7 +55,7 @@ const Channel = (props) => {
 
         <div className={`content ${styles.content}`}>
 
-            <Link href={process.env.NEXT_PUBLIC_DOMAIN_NAME+'/channel-details'}>
+            <Link href={props.channelLink}>
                 <div className={`box__header ${styles.box__header}`}>
                     <div className="logo">
                         <Image src={props.logoLink} alt="channel logo" width={48} height={48} objectFit="contain"></Image>
@@ -64,11 +73,11 @@ const Channel = (props) => {
             <Program
                 key = {first_program.program_id}
                 programName = {first_program.program_title}
-                time = {first_program.program_time}
+                time = {first_program_time}
                 hasIcon = {(props.tomorrowList == true)? false : true}
             />
 
-            {progress_bar}
+            {/* {progress_bar} */}
 
             {prog_list}            
 

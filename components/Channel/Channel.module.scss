@@ -4,7 +4,7 @@
         width: calc(50% - 22px);
     }
     @media (max-width: 600px){
-        width: calc(100% - 22px);
+        width: 100%;
     }
 }
 
@@ -63,7 +63,7 @@
             padding-top: 20px;
 
             span{
-                max-width: 35px !important;
+                max-width: 45px !important;
             }
 
             span img{

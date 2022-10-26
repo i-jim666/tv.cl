@@ -65,7 +65,7 @@ const TomorrowList = () => {
                 key = {i+'tomorrow'}
                 logoLink = {Logos[converted_name]}
                 channelName = {elem.channel_name}
-                channelLink = '#'
+                channelLink = {process.env.NEXT_PUBLIC_DOMAIN_NAME+'/channel-details?channel='+elem.channel_name}
                 programList = {elem.program_list}
                 tomorrowList ={true}
             />);

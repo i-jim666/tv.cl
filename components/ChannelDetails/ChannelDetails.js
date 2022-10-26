@@ -1,75 +1,112 @@
-import React from 'react'
-import styles from './ChannelDetails.scss'
+import React, {useEffect, useState} from 'react'
+import './ChannelDetails.scss'
 import moment from 'moment'
 import TodayList from './TodayList';
 import TomorrowList from './TomorrowList';
-import logoLink from '../../images/cnn.png';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+
+import Loader from '../../global-components/Loader';
+import Logos from '../../global-components/AllLogos.js'
 
 let today = moment().format('DD MMM');
 let tomorrow = moment().add(1,'days').format('DD MMM');
 
-class ChannelList extends React.Component {
+var img_logo, channel_logo;
 
-    constructor(){
-        super()
-        this.state = {
-            showToday: true,
-            showTomorrow: false
-        }
+const ChannelList = () => {
+
+    const { query } = useRouter();
+    var channel_name = query.channel;
+
+
+    function convertToFit(Text) {
+        return Text.toLowerCase()
+            .replace(/ /g, '_')
+            .replace(/[^\w-]+/g, '');
     }
+    
+    useEffect(()=>{
 
-    showToday = () => {
-        this.setState({
-            showToday: true,
-            showTomorrow: false
-        });
-    }
-    showTomorrow = () => {
-        this.setState({
-            showToday: false,
-            showTomorrow: true
-        });
-    }
+        try{
+            let converted_name = convertToFit(channel_name)
 
-    render() {
+            if(converted_name == 'cdf_bsico'){
+                converted_name = 'cdf_basico'
+            }
+            if(converted_name == '24_horas'){
+                converted_name = 'horas'
+            }
+            if(converted_name == 'de_pelcula'){
+                converted_name = 'de_pelicula'
+            }
+            if(converted_name == 'chilevisin'){
+                converted_name = 'chilevision'
+            }
+            if(converted_name == '13c'){
+                converted_name = 'thirteen_c'
+            }
+            if(converted_name == 'fox_sports_bsico'){
+                converted_name = 'fox_sports_basico'
+            }
+            if(converted_name == 'discovery_home__health'){
+                converted_name = 'discovery_home_health'
+            }
 
-        let render_items
+            channel_logo = Logos[converted_name];
 
-        if(this.state.showToday){
-            render_items = <TodayList />
+            setRenderlogo(<Image src={channel_logo} alt="Channel logo" />)
         }
-        else{
-            render_items = <TomorrowList />
-        }
+        catch{
 
-        return(
-            <div className="channel__wrapper channel__details_wrapper">
-                <div className="container">
-                    <div className="title__filter">
-                        <div className={`flex_container`}>
-                            <h3 className={`title`}>
-                                <div className="logo">
-                                    <Image src={logoLink} alt="Channel logo" />
-                                </div>
-                                CNN Chile
-                            </h3>
-                            <div className={`channel_filter filter`}>
-                                <div onClick={this.showToday} className={`today ${this.state.showToday ? 'active' : ''}`}>Today, {today}</div>
-                                <div onClick={this.showTomorrow} className={`tomorrow ${this.state.showTomorrow ? 'active' : ''}`}>Tommorrow, {tomorrow}</div>
+        }
+        
+    }, [])
+    
+
+    const [todayState, setTodayState] = useState(true);
+    const [tomorrowState, setTomorrowState] = useState(false);
+    const [renderLogo, setRenderlogo] = useState();
+
+    return(
+        <div className="channel__wrapper channel__details_wrapper">
+            <div className="container">
+                <div className="title__filter">
+                    <div className={`flex_container`}>
+                        <h3 className={`title`}>
+                            <div className="logo">
+                                {renderLogo}
+                            </div>
+                            {channel_name}
+                        </h3>
+                        <div className={`channel_filter filter`}>
+                            <div 
+                                onClick={()=>{
+                                    setTodayState(true);
+                                    setTomorrowState(false);
+                                }} 
+                                className={`today ${todayState ? 'active' : ''}`}>
+                                Today, {today}
+                            </div>
+                            <div 
+                                onClick={()=>{
+                                    setTodayState(false);
+                                    setTomorrowState(true);
+                                }} 
+                                className={`tomorrow ${tomorrowState ? 'active' : ''}`}>
+                                Tomorrow, {tomorrow}
                             </div>
                         </div>
                     </div>
-                    <div className={`programs`}>
+                </div>
+                <div className={`programs`}>
 
-                        {render_items}
+                    {todayState == true? <TodayList /> : <TomorrowList />}
 
-                    </div>
                 </div>
             </div>
-        )
-    }
+        </div>
+    )
 }
-
 
 export default ChannelList

@@ -13,6 +13,7 @@ const TodayList = () => {
         }
 
   const [todayList, setTodayList] = useState(<Loader />);
+  
   useEffect( ()=>{
     try{
         var axios = require('axios');
@@ -65,7 +66,7 @@ const TodayList = () => {
                 key = {i+'today'}
                 logoLink = {Logos[converted_name]}
                 channelName = {elem.channel_name}
-                channelLink = '#'
+                channelLink = {process.env.NEXT_PUBLIC_DOMAIN_NAME+'/channel-details?channel='+elem.channel_name}
                 programList = {elem.program_list}
                 tomorrowList ={false}
             />);

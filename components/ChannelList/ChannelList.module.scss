@@ -21,7 +21,7 @@
     }
 
     span{
-        max-width: 35px !important;
+        max-width: 45px !important;
     }
 
     span img{
@@ -76,5 +76,6 @@
 
     @media (max-width: 600px){
         gap: 15px;
+        margin-right: 0;
     }
 }

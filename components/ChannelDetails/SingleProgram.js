@@ -1,16 +1,18 @@
 import React from 'react'
+import moment from 'moment/moment'
 
-const SingleProgram = () => {
+const SingleProgram = (props) => {
+  let converted_time = moment(props.programTime, 'HH:mm:ss').format('hh:mm a')
   return (
     <div className="single__program">
       <div className="flex_container">
           <div className="time">
-            {`10:05 am`}
+            {converted_time}
           </div>
           <div className="program_details">
-              <p className="title">{`CNN Newsroom With Pamela Brown`}</p>
-              <p className="category">{`News, Documentery, Public, Affairs`}</p>
-              <p className="desc">{`The knife against the throat of Amanda Ooms and Niklas Källner when they face Kajsa Grytt and Messiah Hallberg. Messiah wastes points and what is Zelenskyj's first name?`}</p>
+              <p className="title">{props.programName}</p>
+              <p className="category">{props.programType}</p>
+              <p className="desc">{props.programDesc}</p>
           </div>
       </div>
     </div>

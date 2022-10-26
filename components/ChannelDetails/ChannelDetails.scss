@@ -38,7 +38,7 @@
         }
 
         span{
-            max-width: 35px !important;
+            max-width: 45px !important;
         }
     
         span img{
@@ -88,11 +88,12 @@
         display: flex;
         flex-wrap: wrap;
         gap: 25px 22px;
-        @media (max-width: 600px){
-            gap: 20px;
-        }
         margin-top: 40px;
         margin-right: -22px;
+        @media (max-width: 600px){
+            gap: 20px;
+            margin-right: 0;
+        }
     }
 
     .single__program{
@@ -110,13 +111,15 @@
             font-size: 16px;
             line-height: 22px;
             color: #282D34;
-            min-width: 70px;
+            min-width: 80px;
 
             @media (max-width: 600px){
                 font-size: 14px;
             }
         }
         .program_details{
+            width: 100%;
+
             .title{
                 font-weight: 500;
                 font-size: 20px;
