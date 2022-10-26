@@ -8,6 +8,9 @@
     line-height: 17px;
     color: #282D34;
     margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .time_holder{
     display: flex;
