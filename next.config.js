@@ -22,6 +22,13 @@ const nextConfig = {
     })
     return config;
   },
+
+  reactStrictMode: true,
+  images: {
+    domains: ['image.tmdb.org'],
+  },
 }
 
 module.exports = nextConfig
+
+

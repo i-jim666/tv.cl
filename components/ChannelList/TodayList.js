@@ -18,7 +18,7 @@ const TodayList = () => {
     try{
         var axios = require('axios');
         var data = {
-          "publish_date": "tomorrow"
+          "publish_date": "today"
         };
         
         var config = {
@@ -38,39 +38,43 @@ const TodayList = () => {
           let i = 0;
           items.map(elem => {
 
-            let converted_name = convertToFit(elem.channel_name)
+            if(elem.program_list.length > 0){
+              let converted_name = convertToFit(elem.channel_name)
 
-            if(converted_name == 'cdf_bsico'){
-                converted_name = 'cdf_basico'
-            }
-            if(converted_name == '24_horas'){
-                converted_name = 'horas'
-            }
-            if(converted_name == 'de_pelcula'){
-                converted_name = 'de_pelicula'
-            }
-            if(converted_name == 'chilevisin'){
-                converted_name = 'chilevision'
-            }
-            if(converted_name == '13c'){
-                converted_name = 'thirteen_c'
-            }
-            if(converted_name == 'fox_sports_bsico'){
-                converted_name = 'fox_sports_basico'
-            }
-            if(converted_name == 'discovery_home__health'){
-                converted_name = 'discovery_home_health'
+              if(converted_name == 'cdf_bsico'){
+                  converted_name = 'cdf_basico'
+              }
+              if(converted_name == '24_horas'){
+                  converted_name = 'horas'
+              }
+              if(converted_name == 'de_pelcula'){
+                  converted_name = 'de_pelicula'
+              }
+              if(converted_name == 'chilevisin'){
+                  converted_name = 'chilevision'
+              }
+              if(converted_name == '13c'){
+                  converted_name = 'thirteen_c'
+              }
+              if(converted_name == 'fox_sports_bsico'){
+                  converted_name = 'fox_sports_basico'
+              }
+              if(converted_name == 'discovery_home__health'){
+                  converted_name = 'discovery_home_health'
+              }
+  
+              items_arr.push(<Channel
+                  key = {i+'today'}
+                  logoLink = {Logos[converted_name]}
+                  channelName = {elem.channel_name}
+                  channelLink = {process.env.NEXT_PUBLIC_DOMAIN_NAME+'/channel-details?channel='+elem.channel_name}
+                  programList = {elem.program_list}
+                  tomorrowList ={false}
+              />);
+              i++;
+              
             }
 
-            items_arr.push(<Channel
-                key = {i+'today'}
-                logoLink = {Logos[converted_name]}
-                channelName = {elem.channel_name}
-                channelLink = {process.env.NEXT_PUBLIC_DOMAIN_NAME+'/channel-details?channel='+elem.channel_name}
-                programList = {elem.program_list}
-                tomorrowList ={false}
-            />);
-            i++;
           })
           setTodayList(items_arr);
 
