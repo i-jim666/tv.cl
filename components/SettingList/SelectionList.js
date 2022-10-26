@@ -39,7 +39,7 @@ const SelectionList = () => {
           let i = 0;
           items.map(elem => {
 
-            console.log(elem)
+            // console.log(elem)
 
             let converted_name = convertToFit(elem.channel_name)
 

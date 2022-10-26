@@ -9,7 +9,7 @@ import moment from 'moment/moment'
 
 
 var current_chile_time = moment.utc().subtract({'hours': 3}).format('HH:mm');
-console.log(current_chile_time)
+// console.log(current_chile_time)
 
 const Channel = (props) => {
 
