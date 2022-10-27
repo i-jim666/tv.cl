@@ -138,22 +138,6 @@ const Channel = (props) => {
       </Link>
 
       <div className={`content ${styles.content}`}>
-        <Link href={props.channelLink}>
-          <div className={`box__header ${styles.box__header}`}>
-            <div className="logo">
-              <Image
-                src={props.logoLink}
-                alt="channel logo"
-                width={48}
-                height={48}
-                objectFit="contain"
-              ></Image>
-            </div>
-            <p className="channel_name">{props.channelName}</p>
-            <RightCaret />
-          </div>
-        </Link>
-
         {getProgramInfo(first_program.program_title)}
 
         {dynamic_image}
@@ -164,7 +148,11 @@ const Channel = (props) => {
           time={first_program_time}
           // hasIcon = {(props.tomorrowList == true)? false : true}
           hasIcon={false}
-          className="first_program"
+          className={
+            props.tomorrowList == true
+              ? "first_program_tomorrow"
+              : "first_program"
+          }
         />
 
         {progress_bar}
