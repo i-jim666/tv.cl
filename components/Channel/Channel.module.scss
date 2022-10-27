@@ -13,10 +13,6 @@
     align-items: center;
     width: fit-content;
 
-    @media (max-width: 600px){
-        display: none;
-    }
-
     cursor: pointer;
 
     div{
@@ -51,12 +47,7 @@
     margin-top: 16px;
     padding-bottom: 20px;
 
-    .box__header{
-        display: none;
-    }
-
     @media (max-width: 600px){
-        margin-top: 0;
         .box__header{
             display: flex;
             padding: 0 15px;
@@ -78,9 +69,6 @@
         width: 100% !important;
         height: auto !important;
 
-        @media (max-width: 600px){
-            display: none !important;
-        }
 
         > img{
             object-fit: cover !important;
@@ -97,7 +85,11 @@
 .progress{
     height: 2px;
     width: calc(100% - 30px);
-    margin: 15px;
+    margin: 12px 15px;
+    @media (max-width: 600px){
+        margin: 8px 20px;
+        width: calc(100% - 40px);
+    }
     border-radius: 8px;
     margin-left: auto;
     margin-right: auto;

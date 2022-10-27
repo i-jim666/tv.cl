@@ -164,6 +164,7 @@ const Channel = (props) => {
           time={first_program_time}
           // hasIcon = {(props.tomorrowList == true)? false : true}
           hasIcon={false}
+          className="first_program"
         />
 
         {progress_bar}

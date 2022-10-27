@@ -237,3 +237,20 @@ main{
 }
 
 
+
+.first_program{
+  .programName{
+      margin-top: 16px;
+      font-size: 16px;
+      height: 20px;
+      font-weight: 500;
+      margin-bottom: 0;
+
+      @media (max-width: 600px){
+        margin-top: 12px;
+      }
+  }
+  .time{
+    font-size: 14px;
+  }
+}
