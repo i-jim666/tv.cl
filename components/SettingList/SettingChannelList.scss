@@ -91,7 +91,8 @@
         padding-bottom: 16px;
         margin-bottom: 16px;
         border-bottom: 1px solid #DDDDDD;
-
+        user-select: none;
+        cursor: pointer;
         .flex_container{
             @media (max-width: 600px){
                 flex-direction: row;
