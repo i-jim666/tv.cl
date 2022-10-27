@@ -118,7 +118,7 @@ const Channel = (props) => {
                 time = {first_program_time}
                 // hasIcon = {(props.tomorrowList == true)? false : true}
                 hasIcon = {false}
-                className = {(props.tomorrowList == true)? '' : 'first_program'}
+                className = {(props.tomorrowList == true)? 'first_program_tomorrow' : 'first_program'}
             />
 
 
