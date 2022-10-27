@@ -4,6 +4,7 @@ import "./SettingChannelList.scss";
 import Loader from "../../global-components/Loader";
 import Logos from "../../global-components/AllLogos.js";
 import { nanoid } from "nanoid";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 const OrderedList = () => {
   function convertToFit(Text) {
     return Text.toLowerCase()
@@ -81,44 +82,58 @@ const OrderedList = () => {
   useEffect(() => {
     console.log("dsfsdfsd");
   }, [renderer]);
-  const dragItem = useRef(null);
-  const dragOverItem = useRef(null);
-  const handleSort = () => {
-    let _renderer = [...renderer];
 
-    const draggedItemContent = _renderer.splice(dragItem.current, 1)[0];
-    _renderer.splice(dragOverItem.current, 0, draggedItemContent);
-    dragItem.current = null;
-    dragOverItem.current = null;
-    console.log("_renderer", _renderer);
-    setRenderer(_renderer);
+  const handleOnDragEnd = (result) => {
+    console.log(result);
+    if (!result.destination) return;
+    const items = Array.from(renderer);
+    const [reorderItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderItem);
+
+    setRenderer(items);
   };
   return (
     <div className="selection__list">
       {!renderer ? (
         <Loader />
       ) : (
-        <>
-          {renderer.map((item, index) => {
-            return (
+        <DragDropContext onDragEnd={handleOnDragEnd}>
+          <Droppable droppableId="channelList">
+            {(provided) => (
               <div
-                key={nanoid()}
-                draggable
-                onDragStart={(e) => (dragItem.current = index)}
-                onDragEnter={(e) => (dragOverItem.current = index)}
-                onDragEnd={handleSort}
-                onDragOver={(e) => e.preventDefault()}
+                className="channelList"
+                {...provided.droppableProps}
+                ref={provided.innerRef}
               >
-                <OrderChannel
-                  key={nanoid()}
-                  logoLink={item.logoLink}
-                  channelName={item.channelName}
-                  programCount={item.programCount}
-                />
+                {renderer.map((item, index) => {
+                  return (
+                    <Draggable
+                      key={nanoid()}
+                      draggableId={item.channelName}
+                      index={index}
+                    >
+                      {(provided) => (
+                        <div
+                          {...provided.draggableProps}
+                          ref={provided.innerRef}
+                          {...provided.dragHandleProps}
+                        >
+                          <OrderChannel
+                            key={nanoid()}
+                            logoLink={item.logoLink}
+                            channelName={item.channelName}
+                            programCount={item.programCount}
+                          />
+                        </div>
+                      )}
+                    </Draggable>
+                  );
+                })}
+                {provided.placeholder}
               </div>
-            );
-          })}
-        </>
+            )}
+          </Droppable>
+        </DragDropContext>
       )}
     </div>
   );

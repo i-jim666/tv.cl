@@ -5,9 +5,8 @@
 // }
 // module.exports = nextConfig
 
-
 /** @type {import('next').NextConfig} */
-const path = require('path');
+const path = require("path");
 const nextConfig = {
   // disable css-modules component styling
   webpack(config) {
@@ -15,20 +14,18 @@ const nextConfig = {
       const { oneOf } = rule;
       if (oneOf) {
         oneOf.forEach((one) => {
-          if (!`${one.issuer?.and}`.includes('_app')) return;
+          if (!`${one.issuer?.and}`.includes("_app")) return;
           one.issuer.and = [path.resolve(__dirname)];
         });
       }
-    })
+    });
     return config;
   },
 
-  reactStrictMode: true,
+  reactStrictMode: false,
   images: {
-    domains: ['image.tmdb.org'],
+    domains: ["image.tmdb.org"],
   },
-}
+};
 
-module.exports = nextConfig
-
-
+module.exports = nextConfig;
