@@ -66,8 +66,13 @@ const Channel = (props) => {
 
   var first_program_time = moment(first_program.program_time, 'hh:mm:ss').format('HH:mm')
 
+  let limit = 5;
 
-  for(let i=1; i<5; i++){
+  if(screen.width < 600){
+    limit = 3
+  }
+
+  for(let i=1; i<limit; i++){
 
     let modified_time = moment(rest_of_the_program[i].program_time, 'hh:mm:ss').format('HH:mm')
 
@@ -123,7 +128,8 @@ const Channel = (props) => {
                 key = {first_program.program_id}
                 programName = {first_program.program_title}
                 time = {first_program_time}
-                hasIcon = {(props.tomorrowList == true)? false : true}
+                // hasIcon = {(props.tomorrowList == true)? false : true}
+                hasIcon = {false}
             />
 
 
