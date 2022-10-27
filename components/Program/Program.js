@@ -56,7 +56,7 @@ const Program = (props) => {
   }
 
   return (
-    <div className={`program ${styles.program}`}>
+    <div className={`program ${styles.program} ${props.className}`}>
         <p className={`programName ${styles.programName}`} onClick={()=>{getProgramInfo(props.programName)}}>
             {props.programName}
         </p>
