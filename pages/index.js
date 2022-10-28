@@ -27,7 +27,7 @@ export default function Home() {
       <main className={`main`}>
         <Hero />
         <ChannelList 
-          title="What’s on TV channel"
+          title="Programación y horarios de la TV"
         />
       </main>
 

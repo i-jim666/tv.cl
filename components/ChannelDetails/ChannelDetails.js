@@ -86,7 +86,7 @@ const ChannelList = () => {
                                     setTomorrowState(false);
                                 }} 
                                 className={`today ${todayState ? 'active' : ''}`}>
-                                Today, {today}
+                                Hoy, {today}
                             </div>
                             <div 
                                 onClick={()=>{
@@ -94,7 +94,7 @@ const ChannelList = () => {
                                     setTomorrowState(true);
                                 }} 
                                 className={`tomorrow ${tomorrowState ? 'active' : ''}`}>
-                                Tomorrow, {tomorrow}
+                                Mañana, {tomorrow}
                             </div>
                         </div>
                     </div>

@@ -50,8 +50,8 @@ class ChannelList extends React.Component {
                         <div className={`${styles.flex_container}`}>
                             <h3 className={styles.title}>{this.props.title}</h3>
                             <div className={`channel_filter ${styles.filter}`}>
-                                <div onClick={this.showToday} className={`today ${this.state.showToday ? 'active' : ''}`}>Today, {today}</div>
-                                <div onClick={this.showTomorrow} className={`tomorrow ${this.state.showTomorrow ? 'active' : ''}`}>Tommorrow, {tomorrow}</div>
+                                <div onClick={this.showToday} className={`today ${this.state.showToday ? 'active' : ''}`}>Hoy, {today}</div>
+                                <div onClick={this.showTomorrow} className={`tomorrow ${this.state.showTomorrow ? 'active' : ''}`}>Mañana, {tomorrow}</div>
                             </div>
                         </div>
                     </div>

@@ -5,8 +5,29 @@
 
     .container{
         display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+
+        .left-col{
+            max-width: 381px;
+            width: 100%;
+        }
+
+        .big_text{
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 25px;
+            color: #282D34;
+            margin-bottom: 4px;
+        }
+        .footer_about_desc{
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 17px;
+            color: #707A87;
+        }
     }
 
     .logo{
@@ -23,7 +44,7 @@
         gap: 12px 24px;
 
         .link{
-            font-weight: 700;
+            font-weight: 500;
             font-size: 13px;
             line-height: 16px;
             color: #707A87;

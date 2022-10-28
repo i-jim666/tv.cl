@@ -27,7 +27,7 @@ const Header_Mobile = () => {
                     <div className="logo">
                         <Link href={process.env.NEXT_PUBLIC_DOMAIN_NAME}>
                             <span>
-                                <Image src={Logo} alt="Logo" width={45} />
+                                <Image src={Logo} alt="Logo" width={60} />
                             </span>
                         </Link>
                     </div>
@@ -62,21 +62,21 @@ const Header_Mobile = () => {
                         <Link href="#">
                             <div className="item">
                                 <Image src={SearchIcon} alt="Search icon" />
-                                <span className='text'>Search channel</span>
+                                <span className='text'>Canal de búsqueda</span>
                             </div>
                         </Link>
                         
-                        <Link href="#">
+                        <Link href={process.env.NEXT_PUBLIC_DOMAIN_NAME+'/settings'}>
                             <div className="item">
                                 <SettingsIcon />
-                                <span className='text'>Customize channel</span>
+                                <span className='text'>Personalizar canal</span>
                             </div>
                         </Link>
 
-                        <Link href="#">
+                        <Link href={process.env.NEXT_PUBLIC_DOMAIN_NAME+'/about-us'}>
                             <div className="item">
                                 <Image src={TvIcon} alt="TV icon" />
-                                <span className='text'>About tv.cl</span>
+                                <span className='text'>Acerca de tv.cl</span>
                             </div>
                         </Link>
                     </div>
