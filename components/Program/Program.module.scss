@@ -1,12 +1,13 @@
 .program{
-    margin-top: 8px;
+    margin-bottom: 15px;
     padding: 0 15px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 6px;
 
-    @media (max-width: 600px){
-        margin-top: 10px;
+
+    &:last-child{
+        margin-bottom: 0;
     }
 }
 .programName{
@@ -17,16 +18,42 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    
+    width: 100%;
 }
 .time_holder{
     display: flex;
     align-items: center;
     gap: 6px;
+    min-width: 40px;
 }
 .time{
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
     color: #707A87;
+}
+
+.progress{
+    height: 2px;
+    width: 100%;
+    margin: 12px 15px;
+    margin-bottom: 4px;
+    @media (max-width: 600px){
+        margin-bottom: 2px;
+    }
+    border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #CAD4E1;
+    position: relative;
+
+    div{
+        position: absolute;
+        width: 80%;
+        height: 2px;
+        border-radius: 8px;
+        background-color: #282D34;
+        left: 0;
+        top: 0;
+    }
 }

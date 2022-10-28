@@ -4,6 +4,20 @@ import TimerIcon from "../../images/icons/TimerIcon.svg";
 import Image from "next/image";
 
 const Program = (props) => {
+
+  var progress_bar = "";
+  if (props.tomorrowList == false) {
+    progress_bar = (
+      <div className={`progress ${styles.progress}`}>
+        <div></div>
+      </div>
+    );
+  }
+
+  if(screen.width < 600){
+    progress_bar = '';
+  }
+
   let getProgramInfo = (param) => {
     try {
       var axios = require("axios");
@@ -62,6 +76,7 @@ const Program = (props) => {
         }}
       >
         {props.programName}
+        {progress_bar}
       </p>
     </div>
   );
