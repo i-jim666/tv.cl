@@ -270,3 +270,9 @@ main{
 .first_program_tomorrow{
   margin-top: 20px !important;
 }
+
+
+.today,
+.tomorrow{
+  text-transform: capitalize;
+}
