@@ -12,8 +12,8 @@ import Logos from '../../global-components/AllLogos.js'
 
 moment.locale('es'); // change the global locale to Spanish
 
-let today = moment().format('DD MMM');
-let tomorrow = moment().add(1,'days').format('DD MMM');
+let today = moment().format('DD MMM').slice(0, -1);
+let tomorrow = moment().add(1,'days').format('DD MMM').slice(0, -1);
 
 var img_logo, channel_logo;
 
@@ -80,7 +80,7 @@ const ChannelList = () => {
                             <div className="logo">
                                 {renderLogo}
                             </div>
-                            {channel_name}
+                            {channel_name} Programación
                         </h3>
                         <div className={`channel_filter filter`}>
                             <div 

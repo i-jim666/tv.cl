@@ -7,8 +7,8 @@ import 'moment/locale/es';
 
 moment.locale('es'); // change the global locale to Spanish
 
-let today = moment().format('DD MMM');
-let tomorrow = moment().add(1,'days').format('DD MMM');
+let today = moment().format('DD MMM').slice(0, -1);
+let tomorrow = moment().add(1,'days').format('DD MMM').slice(0, -1);
 
 class ChannelList extends React.Component {
 
