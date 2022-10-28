@@ -1,6 +1,9 @@
 .program{
     margin-top: 8px;
     padding: 0 15px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 
     @media (max-width: 600px){
         margin-top: 10px;
@@ -11,7 +14,6 @@
     font-size: 14px;
     line-height: 17px;
     color: #282D34;
-    margin-bottom: 6px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
