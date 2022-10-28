@@ -18,7 +18,7 @@ const Channel = (props) => {
         width={307}
         height={155}
         objectFit="cover"
-        objectPosition="center"
+        objectPosition="top"
       />
     );
   } else {
@@ -57,7 +57,7 @@ const Channel = (props) => {
                   width={307}
                   height={155}
                   objectFit="cover"
-                  objectPosition="center"
+                  objectPosition="top"
                 />
               );
             } else {
@@ -68,7 +68,7 @@ const Channel = (props) => {
                   width={307}
                   height={155}
                   objectFit="cover"
-                  objectPosition="center"
+                  objectPosition="top"
                 />
               );
             }
