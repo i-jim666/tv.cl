@@ -1,18 +1,15 @@
-import Head from 'next/head'
+import Head from "next/head";
 
 // Global components
-import Header from '../global-components/Header'
-import Footer from '../global-components/Footer'
+import Header from "../global-components/Header";
+import Footer from "../global-components/Footer";
 
 // Components
-import Hero from '../components/Hero/Hero'
-import ChannelList from '../components/ChannelList/ChannelList'
-import Header_Mobile from '../global-components/Header_Mobile'
-
+import Hero from "../components/Hero/Hero";
+import ChannelList from "../components/ChannelList/ChannelList";
+import Header_Mobile from "../global-components/Header_Mobile";
 
 export default function Home() {
-   
-
   return (
     <div className={`main__wrapper`}>
       <Head>
@@ -26,13 +23,10 @@ export default function Home() {
 
       <main className={`main`}>
         <Hero />
-        <ChannelList 
-          title="What’s on TV channel"
-        />
+        <ChannelList title="What’s on TV channel" />
       </main>
 
       <Footer />
-
     </div>
-  )
+  );
 }
