@@ -42,10 +42,10 @@ class SettinglList extends React.Component {
                 <div className="container">
                     <div className="title__filter">
                         <div className="flex_container">
-                            <h3 className="title">TV Guide Settings</h3>
+                            <h3 className="title">Configuración de canales</h3>
                             <div className={`channel_filter filter`}>
-                                <div onClick={this.showSelection} className={`today ${this.state.showSelection ? 'active' : ''}`}>Channels</div>
-                                <div onClick={this.showOrdered} className={`tomorrow ${this.state.showOrdered ? 'active' : ''}`}>Re-order list</div>
+                                <div onClick={this.showSelection} className={`today ${this.state.showSelection ? 'active' : ''}`}>Canales</div>
+                                <div onClick={this.showOrdered} className={`tomorrow ${this.state.showOrdered ? 'active' : ''}`}>Ordenar la lista de canales</div>
                             </div>
                         </div>
                     </div>

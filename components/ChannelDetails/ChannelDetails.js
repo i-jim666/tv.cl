@@ -5,9 +5,12 @@ import TodayList from './TodayList';
 import TomorrowList from './TomorrowList';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import 'moment/locale/es';
 
 import Loader from '../../global-components/Loader';
 import Logos from '../../global-components/AllLogos.js'
+
+moment.locale('es'); // change the global locale to Spanish
 
 let today = moment().format('DD MMM');
 let tomorrow = moment().add(1,'days').format('DD MMM');

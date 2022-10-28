@@ -3,10 +3,12 @@ import styles from './ChannelList.module.scss'
 import moment from 'moment'
 import TodayList from './TodayList';
 import TomorrowList from './TomorrowList';
+import 'moment/locale/es';
+
+moment.locale('es'); // change the global locale to Spanish
 
 let today = moment().format('DD MMM');
 let tomorrow = moment().add(1,'days').format('DD MMM');
-
 
 class ChannelList extends React.Component {
 

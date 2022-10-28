@@ -23,7 +23,7 @@
 
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 6px;
 
         @media (max-width: 600px){
             font-size: 22px;
@@ -111,7 +111,9 @@
             font-size: 16px;
             line-height: 22px;
             color: #282D34;
-            min-width: 80px;
+            // min-width: 80px;
+
+            min-width: 50px;
 
             @media (max-width: 600px){
                 font-size: 14px;
@@ -127,8 +129,15 @@
                 color: #282D34;
                 margin-bottom: 5px;
 
+                .single_program_name{
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    width: 100%;
+                }
+
                 @media (max-width: 600px){
-                    font-size: 16px;
+                    font-size: 18px;
                 }
             }
             .category{
