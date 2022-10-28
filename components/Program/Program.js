@@ -51,6 +51,10 @@ const Program = (props) => {
 
   return (
     <div className={`program ${styles.program} ${props.className}`}>
+      <div className={`time_holder ${styles.time_holder}`}>
+        {timeIcon}
+        <div className={`time ${styles.time}`}>{props.time}</div>
+      </div>
       <p
         className={`programName ${styles.programName}`}
         onClick={() => {
@@ -59,10 +63,6 @@ const Program = (props) => {
       >
         {props.programName}
       </p>
-      <div className={`time_holder ${styles.time_holder}`}>
-        {timeIcon}
-        <div className={`time ${styles.time}`}>{props.time}</div>
-      </div>
     </div>
   );
 };

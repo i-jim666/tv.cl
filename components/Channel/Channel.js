@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect , useState } from "react";
 import styles from "./Channel.module.scss";
 import RightCaret from "../../images/icons/RightCaret";
 import Image from "next/image";
@@ -27,7 +27,7 @@ const Channel = (props) => {
 
   const [dynamic_image, setDynamic] = useState(the_img);
 
-  let getProgramInfo = (param) => {
+  var getProgramInfo = (param) => {
     if (props.tomorrowList == false) {
       var img_link;
 
@@ -119,6 +119,13 @@ const Channel = (props) => {
     );
   }
 
+  useEffect(()=>{
+
+    getProgramInfo(first_program.program_title)
+
+  }, [])
+
+
   return (
     <div className={`channel ${styles.channel}`}>
       <Link href={props.channelLink}>
@@ -138,7 +145,6 @@ const Channel = (props) => {
       </Link>
 
       <div className={`content ${styles.content}`}>
-        {getProgramInfo(first_program.program_title)}
 
         {dynamic_image}
 
