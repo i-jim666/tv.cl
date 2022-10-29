@@ -114,10 +114,10 @@ const TodayList = (props) => {
 
   useEffect(() => {
     if (todayList != null) {
-      const item = JSON.parse(localStorage.getItem("channelList"));
+      const item = JSON.parse(window.localStorage.getItem("channelList"));
       setChannelList(item);
       if (!item) {
-        localStorage.setItem("channelList", JSON.stringify(todayList));
+        window.localStorage.setItem("channelList", JSON.stringify(todayList));
         setChannelList(todayList);
       }
     }

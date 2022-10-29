@@ -17,7 +17,7 @@ const OrderedList = () => {
   useEffect(() => {
     try {
       try {
-        const items = JSON.parse(localStorage.getItem("channelList"));
+        const items = JSON.parse(window.localStorage.getItem("channelList"));
         setRenderer(items);
       } catch {}
     } catch {}
@@ -25,7 +25,7 @@ const OrderedList = () => {
   console.log("parent renderer", renderer);
   useEffect(() => {
     if (renderer) {
-      localStorage.setItem("channelList", JSON.stringify(renderer));
+      window.localStorage.setItem("channelList", JSON.stringify(renderer));
     }
   }, [renderer]);
 
