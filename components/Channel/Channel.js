@@ -10,25 +10,36 @@ import moment from "moment/moment";
 const Channel = (props) => {
   var the_img = "";
 
-  if (props.tomorrowList == false) {
-    the_img = (
-      <Image
-        src={ProgramImg}
-        alt="Program image"
-        width={307}
-        height={155}
-        objectFit="cover"
-        // objectPosition="top"
-      />
-    );
-  } else {
-    the_img = "";
-  }
+  // if (props.tomorrowList == false) {
+  //   the_img = (
+  //     <Image
+  //       src={ProgramImg}
+  //       alt="Program image"
+  //       width={307}
+  //       height={155}
+  //       objectFit="cover"
+  //       // objectPosition="top"
+  //     />
+  //   );
+  // } else {
+  //   the_img = "";
+  // }
+
+  the_img = (
+    <Image
+      src={ProgramImg}
+      alt="Program image"
+      width={307}
+      height={155}
+      objectFit="cover"
+      // objectPosition="top"
+    />
+  );
 
   const [dynamic_image, setDynamic] = useState(the_img);
 
   var getProgramInfo = (param) => {
-    if (props.tomorrowList == false) {
+    
       var img_link;
 
       try {
@@ -77,7 +88,6 @@ const Channel = (props) => {
             console.log(error);
           });
       } catch {}
-    }
   };
 
   var first_program = props.programList[0];

@@ -104,7 +104,7 @@ const ChannelList = () => {
                 </div>
                 <div className={`programs`}>
 
-                    {todayState == true? <TodayList /> : <TomorrowList />}
+                    {todayState == true? <TodayList tomorrowList={false} /> : <TomorrowList tomorrowList={true} />}
 
                 </div>
             </div>

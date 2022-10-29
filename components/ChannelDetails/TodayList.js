@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import moment from 'moment/moment';
 
 
-const TodayList = () => {
+const TodayList = (props) => {
 
   const [todayList, setTodayList] = useState(<Loader />);
 
@@ -14,6 +14,7 @@ const TodayList = () => {
 
   
   useEffect( ()=>{
+    
     var prog_arr = [];
 
     try{
@@ -45,6 +46,7 @@ const TodayList = () => {
             programType = {elem.program_type}
             programDesc = {elem.program_desc}
             programTime = {elem.program_time}
+            tomorrowList = {props.tomorrowList}
           />)
         })
         
