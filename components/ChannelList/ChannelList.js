@@ -40,9 +40,14 @@ class ChannelList extends React.Component {
     let render_items;
 
     if (this.state.showToday) {
-      render_items = <TodayList chilleCurrentTime={chilleCurrentTime} />;
+      render_items = (
+        <TodayList
+          chilleCurrentTime={chilleCurrentTime}
+          search={this.props.search}
+        />
+      );
     } else {
-      render_items = <TomorrowList />;
+      render_items = <TomorrowList search={this.props.search} />;
     }
 
     return (

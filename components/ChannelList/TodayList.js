@@ -6,7 +6,7 @@ import moment from "moment";
 import ClientOnly from "../ClientOnly";
 
 const TodayList = (props) => {
-  const { chilleCurrentTime } = props;
+  const { chilleCurrentTime, search } = props;
   function convertToFit(Text) {
     return Text.toLowerCase()
       .replace(/ /g, "_")
@@ -14,7 +14,8 @@ const TodayList = (props) => {
   }
   const [todayList, setTodayList] = useState(null);
   const [channelList, setChannelList] = useState(null);
-
+  const [filterList, setFilterList] = useState([]);
+  console.log("search", search);
   useEffect(() => {
     try {
       var axios = require("axios");
@@ -36,7 +37,6 @@ const TodayList = (props) => {
         .then(function (response) {
           let items = response.data.data;
           let items_arr = [];
-          let i = 0;
           items.map((elem, index) => {
             let updatedProgramList = [];
             if (elem.program_list.length > 0) {
@@ -126,35 +126,60 @@ const TodayList = (props) => {
     }
   }, [todayList]);
 
+  useEffect(() => {
+    const filteredList = (todayList || []).filter((channel) =>
+      channel.channelName.toLowerCase().includes(search)
+    );
+    setFilterList(filteredList);
+  }, [search, todayList]);
   return (
     <ClientOnly>
       {channelList == null ? (
         <Loader />
       ) : (
         <>
-          {channelList.map((item, index) => {
-            let isChannelExist;
-            if (channelList?.[index].checked == false) {
-              return <></>;
-            } else {
-              isChannelExist = todayList.find(
-                (channel) => channel.channelName == item.channelName
-              );
-            }
-            if (!isChannelExist) {
-              return <></>;
-            }
-            return (
-              <Channel
-                key={isChannelExist.key}
-                logoLink={isChannelExist.logoLink}
-                channelName={isChannelExist.channelName}
-                channelLink={isChannelExist.channelLink}
-                programList={isChannelExist.programList}
-                tomorrowList={isChannelExist.tomorrowList}
-              />
-            );
-          })}
+          {search.length != 0 ? (
+            <>
+              {(filterList || []).map((item) => {
+                return (
+                  <Channel
+                    key={item.key}
+                    logoLink={item.logoLink}
+                    channelName={item.channelName}
+                    channelLink={item.channelLink}
+                    programList={item.programList}
+                    tomorrowList={item.tomorrowList}
+                  />
+                );
+              })}
+            </>
+          ) : (
+            <>
+              {channelList.map((item, index) => {
+                let isChannelExist;
+                if (channelList?.[index].checked == false) {
+                  return <></>;
+                } else {
+                  isChannelExist = todayList.find(
+                    (channel) => channel.channelName == item.channelName
+                  );
+                }
+                if (!isChannelExist) {
+                  return <></>;
+                }
+                return (
+                  <Channel
+                    key={isChannelExist.key}
+                    logoLink={isChannelExist.logoLink}
+                    channelName={isChannelExist.channelName}
+                    channelLink={isChannelExist.channelLink}
+                    programList={isChannelExist.programList}
+                    tomorrowList={isChannelExist.tomorrowList}
+                  />
+                );
+              })}
+            </>
+          )}
         </>
       )}
     </ClientOnly>

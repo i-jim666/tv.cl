@@ -8,8 +8,10 @@ import Footer from "../global-components/Footer";
 import Hero from "../components/Hero/Hero";
 import ChannelList from "../components/ChannelList/ChannelList";
 import Header_Mobile from "../global-components/Header_Mobile";
+import { useState } from "react";
 
 export default function Home() {
+  const [search, setSearch] = useState("");
   return (
     <div className={`main__wrapper`}>
       <Head>
@@ -18,12 +20,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
+      <Header setSearch={setSearch} />
       <Header_Mobile />
 
       <main className={`main`}>
         <Hero />
-        <ChannelList title="Programación y horarios de la TV" />
+        <ChannelList title="Programación y horarios de la TV" search={search} />
       </main>
 
       <Footer />

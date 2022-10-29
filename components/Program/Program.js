@@ -19,6 +19,7 @@ const Program = (props) => {
   }, []);
 
   let getProgramInfo = (param) => {
+    console.log("param", param);
     try {
       var axios = require("axios");
 
@@ -35,11 +36,11 @@ const Program = (props) => {
         .then(function (response) {
           let result = response.data.results[0];
           let img_link;
-
-          if (result.poster_path == null) {
-            img_link = result.backdrop_path;
+          console.log("result", result);
+          if (result?.poster_path == null) {
+            img_link = result?.backdrop_path;
           } else {
-            img_link = result.poster_path;
+            img_link = result?.poster_path;
           }
 
           if (img_link == undefined) {

@@ -24,7 +24,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
-
+    cursor: pointer;
+    user-select: none;
     @media (max-width: 600px){
         font-size: 16px;
     }
