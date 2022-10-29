@@ -9,7 +9,7 @@ const SelectionList = () => {
 
   useEffect(() => {
     try {
-      const items = JSON.parse(localStorage.getItem("channelList"));
+      const items = JSON.parse(window.localStorage.getItem("channelList"));
       setRenderer(items);
     } catch {}
   }, []);
@@ -23,7 +23,7 @@ const SelectionList = () => {
       return item;
     });
     setRenderer(newItems);
-    localStorage.setItem("channelList", JSON.stringify(newItems));
+    window.localStorage.setItem("channelList", JSON.stringify(newItems));
   };
   return (
     <div className="selection__list">
