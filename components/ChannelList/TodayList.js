@@ -3,6 +3,8 @@ import Channel from "../Channel/Channel";
 import Loader from "../../global-components/Loader";
 import Logos from "../../global-components/AllLogos.js";
 import moment from "moment";
+import ClientOnly from "../ClientOnly";
+
 const TodayList = (props) => {
   const { chilleCurrentTime } = props;
   function convertToFit(Text) {
@@ -12,6 +14,7 @@ const TodayList = (props) => {
   }
   const [todayList, setTodayList] = useState(null);
   const [channelList, setChannelList] = useState(null);
+
   useEffect(() => {
     try {
       var axios = require("axios");
@@ -110,7 +113,7 @@ const TodayList = (props) => {
           console.log(error);
         });
     } catch {}
-  }, []);
+  }, [chilleCurrentTime]);
 
   useEffect(() => {
     if (todayList != null) {
@@ -122,9 +125,10 @@ const TodayList = (props) => {
       }
     }
   }, [todayList]);
-  console.log("ChannelList", channelList);
+  console.log(cookie);
+  console.log("ChannelList", todayList);
   return (
-    <>
+    <ClientOnly>
       {channelList == null ? (
         <Loader />
       ) : (
@@ -154,7 +158,7 @@ const TodayList = (props) => {
           })}
         </>
       )}
-    </>
+    </ClientOnly>
   );
 };
 
