@@ -10,21 +10,6 @@ import moment from "moment/moment";
 const Channel = (props) => {
   var the_img = "";
 
-  // if (props.tomorrowList == false) {
-  //   the_img = (
-  //     <Image
-  //       src={ProgramImg}
-  //       alt="Program image"
-  //       width={307}
-  //       height={155}
-  //       objectFit="cover"
-  //       // objectPosition="top"
-  //     />
-  //   );
-  // } else {
-  //   the_img = "";
-  // }
-
   the_img = (
     <Image
       src={ProgramImg}
@@ -39,74 +24,71 @@ const Channel = (props) => {
   const [dynamic_image, setDynamic] = useState(the_img);
 
   var getProgramInfo = (param) => {
-    
-      var img_link;
+    var img_link;
 
-      try {
-        var axios = require("axios");
-        var config = {
-          method: "get",
-          url:
-            "https://api.themoviedb.org/3/search/multi?api_key=a3a3d2e5ab0932a88d7f2c9490a79673&query=" +
-            param +
-            "&page=1&include_adult=false&region=CL",
-          headers: {},
-        };
+    try {
+      var axios = require("axios");
+      var config = {
+        method: "get",
+        url:
+          "https://api.themoviedb.org/3/search/multi?api_key=a3a3d2e5ab0932a88d7f2c9490a79673&query=" +
+          param +
+          "&page=1&include_adult=false&region=CL",
+        headers: {},
+      };
 
-        axios(config)
-          .then(function (response) {
-            let result = response.data.results[0];
+      axios(config)
+        .then(function (response) {
+          let result = response.data.results[0];
 
-            img_link = result?.poster_path;
+          img_link = result?.poster_path;
 
-            if (img_link != null) {
-              img_link = "https://image.tmdb.org/t/p/w500" + img_link;
-              setDynamic(
-                <Image
-                  src={img_link}
-                  alt="Program image"
-                  width={307}
-                  height={155}
-                  objectFit="cover"
-                  // objectPosition="top"
-                />
-              );
-            } else {
-              setDynamic(
-                <Image
-                  src={ProgramImg}
-                  alt="Program image"
-                  width={307}
-                  height={155}
-                  objectFit="cover"
-                  // objectPosition="top"
-                />
-              );
-            }
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-      } catch {}
+          if (img_link != null) {
+            img_link = "https://image.tmdb.org/t/p/w500" + img_link;
+            setDynamic(
+              <Image
+                src={img_link}
+                alt="Program image"
+                width={307}
+                height={155}
+                objectFit="cover"
+                // objectPosition="top"
+              />
+            );
+          } else {
+            setDynamic(
+              <Image
+                src={ProgramImg}
+                alt="Program image"
+                width={307}
+                height={155}
+                objectFit="cover"
+                // objectPosition="top"
+              />
+            );
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    } catch {}
   };
 
   var first_program = props.programList[0];
   var rest_of_the_program = props.programList;
   var prog_list = [];
 
-
   var first_program_time = moment(
-    first_program.program_time,
+    first_program?.program_time,
     "hh:mm:ss"
   ).format("HH:mm");
 
   let limit = 10;
 
-  if(limit > rest_of_the_program.length){
-    limit = rest_of_the_program.length
-  }
-  else{
-    limit = 10
+  if (limit > rest_of_the_program.length) {
+    limit = rest_of_the_program.length;
+  } else {
+    limit = 10;
   }
 
   if (screen.width < 600) {
@@ -114,7 +96,6 @@ const Channel = (props) => {
   }
 
   for (let i = 1; i < limit; i++) {
-
     let modified_time = moment(
       rest_of_the_program[i].program_time,
       "hh:mm:ss"
@@ -131,7 +112,7 @@ const Channel = (props) => {
   }
 
   useEffect(() => {
-    getProgramInfo(first_program.program_title);
+    getProgramInfo(first_program?.program_title);
   }, []);
 
   return (
@@ -156,12 +137,12 @@ const Channel = (props) => {
         {dynamic_image}
 
         <Program
-          key={first_program.program_id}
-          programName={first_program.program_title}
+          key={first_program?.program_id}
+          programName={first_program?.program_title}
           time={first_program_time}
           // hasIcon = {(props.tomorrowList == true)? false : true}
           hasIcon={false}
-          tomorrowList = {(props.tomorrowList == true)? true : false}
+          tomorrowList={props.tomorrowList == true ? true : false}
           className={
             props.tomorrowList == true
               ? "first_program_tomorrow"

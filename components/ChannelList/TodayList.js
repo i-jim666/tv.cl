@@ -2,15 +2,16 @@ import React, { useEffect, useState } from "react";
 import Channel from "../Channel/Channel";
 import Loader from "../../global-components/Loader";
 import Logos from "../../global-components/AllLogos.js";
-
-const TodayList = () => {
+import moment from "moment";
+const TodayList = (props) => {
+  const { chilleCurrentTime } = props;
   function convertToFit(Text) {
     return Text.toLowerCase()
       .replace(/ /g, "_")
       .replace(/[^\w-]+/g, "");
   }
   const [todayList, setTodayList] = useState(null);
-
+  const [channelList, setChannelList] = useState(null);
   useEffect(() => {
     try {
       var axios = require("axios");
@@ -34,6 +35,7 @@ const TodayList = () => {
           let items_arr = [];
           let i = 0;
           items.map((elem, index) => {
+            let updatedProgramList = [];
             if (elem.program_list.length > 0) {
               let converted_name = convertToFit(elem.channel_name);
 
@@ -58,17 +60,48 @@ const TodayList = () => {
               if (converted_name == "discovery_home__health") {
                 converted_name = "discovery_home_health";
               }
+              for (let i = 0; i < elem.program_list.length; i++) {
+                let format = "HH:mm:00";
 
-              items_arr.push({
-                key: `${index}today`,
-                swapIndex: index,
-                logoLink: Logos[converted_name],
-                channelName: elem.channel_name,
-                channelLink: `${process.env.NEXT_PUBLIC_DOMAIN_NAME}/channel-details?channel=${elem.channel_name}`,
-                programList: elem.program_list,
-                tomorrowList: false,
-                checked: true,
-              });
+                let time = moment(chilleCurrentTime, format),
+                  beforeTime = moment(
+                    elem.program_list[i]?.program_time,
+                    format
+                  ),
+                  afterTime = moment(
+                    elem.program_list[i + 1]?.program_time,
+                    format
+                  );
+
+                if (!afterTime.isValid()) {
+                  afterTime = moment(
+                    elem.program_list[i]?.program_time,
+                    format
+                  ).add(31, "minutes");
+                }
+                if (time.isBetween(beforeTime, afterTime)) {
+                  updatedProgramList.push(elem.program_list[i]);
+                } else {
+                  if (time.isSame(beforeTime)) {
+                    updatedProgramList.push(elem.program_list[i]);
+                  } else if (beforeTime.isAfter(time)) {
+                    updatedProgramList.push(elem.program_list[i]);
+                  }
+                }
+              }
+
+              if (updatedProgramList.length > 0) {
+                items_arr.push({
+                  key: `${index}today`,
+                  swapIndex: index,
+                  logoLink: Logos[converted_name],
+                  channelName: elem.channel_name,
+                  channelLink: `${process.env.NEXT_PUBLIC_DOMAIN_NAME}/channel-details?channel=${elem.channel_name}`,
+                  programList: updatedProgramList,
+                  tomorrowList: false,
+                  checked: true,
+                });
+              }
             }
           });
           setTodayList(items_arr);
@@ -78,30 +111,44 @@ const TodayList = () => {
         });
     } catch {}
   }, []);
+
   useEffect(() => {
     if (todayList != null) {
       const item = JSON.parse(localStorage.getItem("channelList"));
+      setChannelList(item);
       if (!item) {
         localStorage.setItem("channelList", JSON.stringify(todayList));
+        setChannelList(todayList);
       }
     }
   }, [todayList]);
-
+  console.log("ChannelList", channelList);
   return (
     <>
-      {todayList == null ? (
+      {channelList == null ? (
         <Loader />
       ) : (
         <>
-          {todayList.map((item) => {
+          {channelList.map((item, index) => {
+            let isChannelExist;
+            if (channelList?.[index].checked == false) {
+              return <></>;
+            } else {
+              isChannelExist = todayList.find(
+                (channel) => channel.channelName == item.channelName
+              );
+            }
+            if (!isChannelExist) {
+              return <></>;
+            }
             return (
               <Channel
-                key={item.key}
-                logoLink={item.logoLink}
-                channelName={item.channelName}
-                channelLink={item.channelLink}
-                programList={item.programList}
-                tomorrowList={item.tomorrowList}
+                key={isChannelExist.key}
+                logoLink={isChannelExist.logoLink}
+                channelName={isChannelExist.channelName}
+                channelLink={isChannelExist.channelLink}
+                programList={isChannelExist.programList}
+                tomorrowList={isChannelExist.tomorrowList}
               />
             );
           })}
