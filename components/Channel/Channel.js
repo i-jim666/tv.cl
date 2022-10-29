@@ -91,7 +91,7 @@ const Channel = (props) => {
     limit = 10;
   }
 
-  if (screen.width < 600) {
+  if (window.screen.width < 600) {
     limit = 3;
   }
 

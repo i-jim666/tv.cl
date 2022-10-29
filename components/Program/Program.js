@@ -4,7 +4,6 @@ import TimerIcon from "../../images/icons/TimerIcon.svg";
 import Image from "next/image";
 
 const Program = (props) => {
-
   var progress_bar = "";
   if (props.tomorrowList == false) {
     progress_bar = (
@@ -14,8 +13,8 @@ const Program = (props) => {
     );
   }
 
-  if(screen.width < 600){
-    progress_bar = '';
+  if (window.screen.width < 600) {
+    progress_bar = "";
   }
 
   let getProgramInfo = (param) => {

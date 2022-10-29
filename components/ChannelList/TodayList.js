@@ -125,8 +125,7 @@ const TodayList = (props) => {
       }
     }
   }, [todayList]);
-  console.log(cookie);
-  console.log("ChannelList", todayList);
+
   return (
     <ClientOnly>
       {channelList == null ? (
