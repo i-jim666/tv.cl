@@ -1,4 +1,4 @@
-import React, { useEffect , useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Channel.module.scss";
 import RightCaret from "../../images/icons/RightCaret";
 import Image from "next/image";
@@ -46,7 +46,7 @@ const Channel = (props) => {
           .then(function (response) {
             let result = response.data.results[0];
 
-            img_link = result.poster_path;
+            img_link = result?.poster_path;
 
             if (img_link != null) {
               img_link = "https://image.tmdb.org/t/p/w500" + img_link;
@@ -119,12 +119,9 @@ const Channel = (props) => {
     );
   }
 
-  useEffect(()=>{
-
-    getProgramInfo(first_program.program_title)
-
-  }, [])
-
+  useEffect(() => {
+    getProgramInfo(first_program.program_title);
+  }, []);
 
   return (
     <div className={`channel ${styles.channel}`}>
@@ -145,7 +142,6 @@ const Channel = (props) => {
       </Link>
 
       <div className={`content ${styles.content}`}>
-
         {dynamic_image}
 
         <Program
