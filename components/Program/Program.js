@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Program.module.scss";
 import TimerIcon from "../../images/icons/TimerIcon.svg";
 import Image from "next/image";

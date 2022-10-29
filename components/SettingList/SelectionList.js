@@ -38,7 +38,7 @@ const SelectionList = () => {
                 index={index}
                 logoLink={item.logoLink}
                 channelName={item.channelName}
-                programCount={item.programCount}
+                programCount={item?.programList?.length ?? 0}
                 checked={item.checked}
                 onCheckboxChange={onCheckboxChange}
               />

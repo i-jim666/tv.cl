@@ -94,14 +94,14 @@ const Channel = (props) => {
 
   for (let i = 1; i < limit; i++) {
     let modified_time = moment(
-      rest_of_the_program[i].program_time,
+      rest_of_the_program[i]?.program_time,
       "hh:mm:ss"
     ).format("HH:mm");
 
     prog_list.push(
       <Program
-        key={rest_of_the_program[i].program_id}
-        programName={rest_of_the_program[i].program_title}
+        key={rest_of_the_program[i]?.program_id}
+        programName={rest_of_the_program[i]?.program_title}
         time={modified_time}
         hasIcon="false"
       />
