@@ -12,10 +12,11 @@ const Program = (props) => {
       </div>
     );
   }
-
-  if (window.screen.width < 600) {
-    progress_bar = "";
-  }
+  useEffect(() => {
+    if (window.screen.width < 600) {
+      progress_bar = "";
+    }
+  }, []);
 
   let getProgramInfo = (param) => {
     try {

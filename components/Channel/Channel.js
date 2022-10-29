@@ -9,7 +9,7 @@ import moment from "moment/moment";
 
 const Channel = (props) => {
   var the_img = "";
-
+  const [limit, setLimit] = useState(10);
   the_img = (
     <Image
       src={ProgramImg}
@@ -83,17 +83,14 @@ const Channel = (props) => {
     "hh:mm:ss"
   ).format("HH:mm");
 
-  let limit = 10;
-
   if (limit > rest_of_the_program.length) {
-    limit = rest_of_the_program.length;
-  } else {
-    limit = 10;
+    setLimit(rest_of_the_program.length);
   }
-
-  if (window.screen.width < 600) {
-    limit = 3;
-  }
+  useEffect(() => {
+    if (window.screen.width < 600) {
+      setLimit(3);
+    }
+  }, []);
 
   for (let i = 1; i < limit; i++) {
     let modified_time = moment(

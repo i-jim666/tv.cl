@@ -11,9 +11,11 @@ const SingleProgram = (props) => {
     processed_desc = "No disponible";
   }
 
-  if (window.screen.width < 600) {
-    processed_desc = processed_desc.replace(/(.{145})..+/, "$1…");
-  }
+  useEffect(() => {
+    if (window.screen.width < 600) {
+      processed_desc = processed_desc.replace(/(.{145})..+/, "$1…");
+    }
+  }, []);
 
   let progress_bar = "";
   if (props.tomorrowList == false) {
