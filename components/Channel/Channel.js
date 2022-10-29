@@ -10,25 +10,36 @@ import moment from "moment/moment";
 const Channel = (props) => {
   var the_img = "";
 
-  if (props.tomorrowList == false) {
-    the_img = (
-      <Image
-        src={ProgramImg}
-        alt="Program image"
-        width={307}
-        height={155}
-        objectFit="cover"
-        objectPosition="top"
-      />
-    );
-  } else {
-    the_img = "";
-  }
+  // if (props.tomorrowList == false) {
+  //   the_img = (
+  //     <Image
+  //       src={ProgramImg}
+  //       alt="Program image"
+  //       width={307}
+  //       height={155}
+  //       objectFit="cover"
+  //       // objectPosition="top"
+  //     />
+  //   );
+  // } else {
+  //   the_img = "";
+  // }
+
+  the_img = (
+    <Image
+      src={ProgramImg}
+      alt="Program image"
+      width={307}
+      height={155}
+      objectFit="cover"
+      // objectPosition="top"
+    />
+  );
 
   const [dynamic_image, setDynamic] = useState(the_img);
 
   var getProgramInfo = (param) => {
-    if (props.tomorrowList == false) {
+    
       var img_link;
 
       try {
@@ -57,7 +68,7 @@ const Channel = (props) => {
                   width={307}
                   height={155}
                   objectFit="cover"
-                  objectPosition="top"
+                  // objectPosition="top"
                 />
               );
             } else {
@@ -68,7 +79,7 @@ const Channel = (props) => {
                   width={307}
                   height={155}
                   objectFit="cover"
-                  objectPosition="top"
+                  // objectPosition="top"
                 />
               );
             }
@@ -77,25 +88,33 @@ const Channel = (props) => {
             console.log(error);
           });
       } catch {}
-    }
   };
 
   var first_program = props.programList[0];
   var rest_of_the_program = props.programList;
   var prog_list = [];
 
+
   var first_program_time = moment(
     first_program.program_time,
     "hh:mm:ss"
   ).format("HH:mm");
 
-  let limit = 5;
+  let limit = 10;
+
+  if(limit > rest_of_the_program.length){
+    limit = rest_of_the_program.length
+  }
+  else{
+    limit = 10
+  }
 
   if (screen.width < 600) {
     limit = 3;
   }
 
   for (let i = 1; i < limit; i++) {
+
     let modified_time = moment(
       rest_of_the_program[i].program_time,
       "hh:mm:ss"
@@ -108,14 +127,6 @@ const Channel = (props) => {
         time={modified_time}
         hasIcon="false"
       />
-    );
-  }
-  var progress_bar = "";
-  if (props.tomorrowList == false) {
-    progress_bar = (
-      <div className={`progress ${styles.progress}`}>
-        <div></div>
-      </div>
     );
   }
 
@@ -150,14 +161,13 @@ const Channel = (props) => {
           time={first_program_time}
           // hasIcon = {(props.tomorrowList == true)? false : true}
           hasIcon={false}
+          tomorrowList = {(props.tomorrowList == true)? true : false}
           className={
             props.tomorrowList == true
               ? "first_program_tomorrow"
               : "first_program"
           }
         />
-
-        {progress_bar}
 
         {prog_list}
       </div>

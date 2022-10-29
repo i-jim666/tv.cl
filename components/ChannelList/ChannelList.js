@@ -3,10 +3,12 @@ import styles from './ChannelList.module.scss'
 import moment from 'moment'
 import TodayList from './TodayList';
 import TomorrowList from './TomorrowList';
+import 'moment/locale/es';
 
-let today = moment().format('DD MMM');
-let tomorrow = moment().add(1,'days').format('DD MMM');
+moment.locale('es'); // change the global locale to Spanish
 
+let today = moment().format('DD MMM').slice(0, -1);
+let tomorrow = moment().add(1,'days').format('DD MMM').slice(0, -1);
 
 class ChannelList extends React.Component {
 
@@ -31,6 +33,7 @@ class ChannelList extends React.Component {
         });
     }
 
+
     render() {
 
         let render_items
@@ -49,8 +52,8 @@ class ChannelList extends React.Component {
                         <div className={`${styles.flex_container}`}>
                             <h3 className={styles.title}>{this.props.title}</h3>
                             <div className={`channel_filter ${styles.filter}`}>
-                                <div onClick={this.showToday} className={`today ${this.state.showToday ? 'active' : ''}`}>Today, {today}</div>
-                                <div onClick={this.showTomorrow} className={`tomorrow ${this.state.showTomorrow ? 'active' : ''}`}>Tommorrow, {tomorrow}</div>
+                                <div onClick={this.showToday} className={`today ${this.state.showToday ? 'active' : ''}`}>Hoy, {today}</div>
+                                <div onClick={this.showTomorrow} className={`tomorrow ${this.state.showTomorrow ? 'active' : ''}`}>Mañana, {tomorrow}</div>
                             </div>
                         </div>
                     </div>

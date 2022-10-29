@@ -5,12 +5,15 @@ import TodayList from './TodayList';
 import TomorrowList from './TomorrowList';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import 'moment/locale/es';
 
 import Loader from '../../global-components/Loader';
 import Logos from '../../global-components/AllLogos.js'
 
-let today = moment().format('DD MMM');
-let tomorrow = moment().add(1,'days').format('DD MMM');
+moment.locale('es'); // change the global locale to Spanish
+
+let today = moment().format('DD MMM').slice(0, -1);
+let tomorrow = moment().add(1,'days').format('DD MMM').slice(0, -1);
 
 var img_logo, channel_logo;
 
@@ -77,7 +80,7 @@ const ChannelList = () => {
                             <div className="logo">
                                 {renderLogo}
                             </div>
-                            {channel_name}
+                            {channel_name} Programación
                         </h3>
                         <div className={`channel_filter filter`}>
                             <div 
@@ -86,7 +89,7 @@ const ChannelList = () => {
                                     setTomorrowState(false);
                                 }} 
                                 className={`today ${todayState ? 'active' : ''}`}>
-                                Today, {today}
+                                Hoy, {today}
                             </div>
                             <div 
                                 onClick={()=>{
@@ -94,14 +97,14 @@ const ChannelList = () => {
                                     setTomorrowState(true);
                                 }} 
                                 className={`tomorrow ${tomorrowState ? 'active' : ''}`}>
-                                Tomorrow, {tomorrow}
+                                Mañana, {tomorrow}
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className={`programs`}>
 
-                    {todayState == true? <TodayList /> : <TomorrowList />}
+                    {todayState == true? <TodayList tomorrowList={false} /> : <TomorrowList tomorrowList={true} />}
 
                 </div>
             </div>

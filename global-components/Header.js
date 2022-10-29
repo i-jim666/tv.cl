@@ -17,7 +17,7 @@ const Header = (props) => {
                 </div>
                 <div className="search__box">
                     <div className="input_holder">
-                        <input type="text" id="search_input" className="search_input" placeholder='Search by channel, program name' />
+                        <input type="text" id="search_input" className="search_input" placeholder='Buscar por canal, programa' />
                     </div>
                 </div>
                 <div className="settings__icon">

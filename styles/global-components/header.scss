@@ -81,6 +81,8 @@
     width: 100%;
     z-index: 999;
     background-color: #FCFCFC;
+    padding: 2px 0;
+    border-bottom: 1px solid #ddd;
 
     display: none;
     @media (max-width: 1200px){
