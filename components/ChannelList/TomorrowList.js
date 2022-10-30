@@ -88,7 +88,7 @@ const TomorrowList = (props) => {
   }, [tomorrowList]);
   useEffect(() => {
     const filteredList = (tomorrowList || []).filter((channel) =>
-      channel.channelName.toLowerCase().includes(search)
+      channel.channelName.toLowerCase().includes(search.toLowerCase())
     );
     setFilterList(filteredList);
   }, [search, tomorrowList]);
