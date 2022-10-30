@@ -98,7 +98,7 @@ const TodayList = (props) => {
         });
     } catch {}
   }, []);
-  console.log(todayList);
+
   return (
     <>
       {todayList == null ? (

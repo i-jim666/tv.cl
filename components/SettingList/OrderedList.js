@@ -22,7 +22,7 @@ const OrderedList = () => {
       } catch {}
     } catch {}
   }, []);
-  console.log("parent renderer", renderer);
+
   useEffect(() => {
     if (renderer) {
       window.localStorage.setItem("channelList", JSON.stringify(renderer));
@@ -30,7 +30,6 @@ const OrderedList = () => {
   }, [renderer]);
 
   const handleOnDragEnd = (result) => {
-    console.log(result);
     if (!result.destination) return;
     const items = Array.from(renderer);
     const [reorderItem] = items.splice(result.source.index, 1);

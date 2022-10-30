@@ -1,11 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Program.module.scss";
 import TimerIcon from "../../images/icons/TimerIcon.svg";
 import Image from "next/image";
+import CustomModal from "../CustomModal";
 
 const Program = (props) => {
   const { progressPercent } = props;
-  console.log("progressPercent", progressPercent);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [img, setImg] = useState(null);
   var progress_bar = "";
   if (props.tomorrowList == false) {
     progress_bar = (
@@ -21,7 +24,6 @@ const Program = (props) => {
   }, []);
 
   let getProgramInfo = (param) => {
-    console.log("param", param);
     try {
       var axios = require("axios");
 
@@ -37,8 +39,8 @@ const Program = (props) => {
       axios(config)
         .then(function (response) {
           let result = response.data.results[0];
-          let img_link;
-          console.log("result", result);
+          let img_link = null;
+
           if (result?.poster_path == null) {
             img_link = result?.backdrop_path;
           } else {
@@ -50,7 +52,7 @@ const Program = (props) => {
           } else {
             img_link = "https://image.tmdb.org/t/p/w780" + img_link;
           }
-          console.log(img_link);
+          setImg(img_link);
         })
         .catch(function (error) {
           console.log(error);
@@ -65,7 +67,9 @@ const Program = (props) => {
   } else {
     timeIcon = "";
   }
-
+  const handleClose = () => {
+    setIsModalOpen(false);
+  };
   return (
     <div className={`program ${styles.program} ${props.className}`}>
       <div className={`time_holder ${styles.time_holder}`}>
@@ -76,11 +80,24 @@ const Program = (props) => {
         className={`programName ${styles.programName}`}
         onClick={() => {
           getProgramInfo(props.programName);
+          setIsModalOpen(true);
         }}
       >
         {props.programName}
         {progress_bar}
       </p>
+      {isModalOpen && (
+        <CustomModal
+          isModalOpen={isModalOpen}
+          handleClose={handleClose}
+          img={img}
+          program_id={props.program_id}
+          logoLink={props.logoLink}
+          isTomorrow={props.isTomorrow}
+          progressPercent={progressPercent}
+          tomorrowList={props.tomorrowList}
+        />
+      )}
     </div>
   );
 };

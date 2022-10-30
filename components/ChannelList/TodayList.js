@@ -15,7 +15,7 @@ const TodayList = (props) => {
   const [todayList, setTodayList] = useState(null);
   const [channelList, setChannelList] = useState(null);
   const [filterList, setFilterList] = useState([]);
-  console.log("search", search);
+
   useEffect(() => {
     try {
       var axios = require("axios");
