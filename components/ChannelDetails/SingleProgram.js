@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import moment from "moment/moment";
 
 const SingleProgram = (props) => {
+  const { progressPercent } = props;
+  console.log("progressPercent details", progressPercent);
   let converted_time = moment(props.programTime, "HH:mm:ss").format("HH:mm");
 
   let processed_desc = props.programDesc;

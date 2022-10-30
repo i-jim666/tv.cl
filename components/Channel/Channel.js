@@ -136,6 +136,7 @@ const Channel = (props) => {
         <Program
           key={first_program?.program_id}
           programName={first_program?.program_title}
+          progressPercent={first_program?.progressPercent}
           time={first_program_time}
           // hasIcon = {(props.tomorrowList == true)? false : true}
           hasIcon={false}

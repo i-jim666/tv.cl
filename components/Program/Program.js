@@ -4,6 +4,8 @@ import TimerIcon from "../../images/icons/TimerIcon.svg";
 import Image from "next/image";
 
 const Program = (props) => {
+  const { progressPercent } = props;
+  console.log("progressPercent", progressPercent);
   var progress_bar = "";
   if (props.tomorrowList == false) {
     progress_bar = (

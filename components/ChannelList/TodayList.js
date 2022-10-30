@@ -82,13 +82,33 @@ const TodayList = (props) => {
                     format
                   ).add(31, "minutes");
                 }
+
+                let duration = moment.duration(afterTime.diff(beforeTime));
+                let currentTimeDuration = moment.duration(
+                  time.diff(beforeTime)
+                );
+                let minutes = parseInt(duration.asMinutes());
+                let currentMinutes = parseInt(currentTimeDuration.asMinutes());
+                let progressPercent = Math.floor(
+                  (currentMinutes / minutes) * 100
+                );
+
                 if (time.isBetween(beforeTime, afterTime)) {
-                  updatedProgramList.push(elem.program_list[i]);
+                  updatedProgramList.push({
+                    ...elem.program_list[i],
+                    progressPercent: progressPercent,
+                  });
                 } else {
                   if (time.isSame(beforeTime)) {
-                    updatedProgramList.push(elem.program_list[i]);
+                    updatedProgramList.push({
+                      ...elem.program_list[i],
+                      progressPercent: progressPercent,
+                    });
                   } else if (beforeTime.isAfter(time)) {
-                    updatedProgramList.push(elem.program_list[i]);
+                    updatedProgramList.push({
+                      ...elem.program_list[i],
+                      progressPercent: progressPercent,
+                    });
                   }
                 }
               }
