@@ -4,7 +4,7 @@ import moment from "moment/moment";
 const SingleProgram = (props) => {
   const { progressPercent } = props;
   console.log("progressPercent details", progressPercent);
-  let converted_time = moment(props.programTime, "HH:mm:ss").format("HH:mm");
+  let converted_time = moment(props.programTime, "HH:mm").format("HH:mm");
 
   let processed_desc = props.programDesc;
   processed_desc = processed_desc.replace(/(.{400})..+/, "$1…");

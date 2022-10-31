@@ -5,6 +5,8 @@ import Image from "next/image";
 import ProgramImg from "../images/card_placeholder.svg";
 import ClientOnly from "./ClientOnly";
 import Loader from "../global-components/Loader";
+import moment from "moment/moment";
+
 const customStyles = {
   content: {
     padding: "0px",
@@ -153,7 +155,7 @@ function CustomModal(props) {
                     {channelDetails?.program_type}
                   </p>
                   <p className="time">
-                    {isTomorrow ? "Mañana" : "Hoy"} {channelDetails?.program_time}
+                    {isTomorrow ? "Mañana" : "Hoy"} {channelDetails?.program_time.slice(0, -3)}
                   </p>
                 </div>
               </div>

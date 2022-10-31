@@ -81,7 +81,7 @@ const Channel = (props) => {
 
   var first_program_time = moment(
     first_program?.program_time,
-    "hh:mm:ss"
+    "HH:mm"
   ).format("HH:mm");
 
   if (limit > rest_of_the_program.length) {
@@ -96,7 +96,7 @@ const Channel = (props) => {
   for (let i = 1; i < limit; i++) {
     let modified_time = moment(
       rest_of_the_program[i]?.program_time,
-      "hh:mm:ss"
+      "HH:mm"
     ).format("HH:mm");
 
     prog_list.push(
