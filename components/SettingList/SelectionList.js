@@ -13,9 +13,8 @@ const SelectionList = () => {
       setRenderer(items);
     } catch {}
   }, []);
-  console.log(renderer);
+
   const onCheckboxChange = (e, changeIndex) => {
-    console.log(changeIndex, e.target.checked);
     const newItems = renderer.map((item, index) => {
       if (index === changeIndex) {
         return { ...item, checked: e.target.checked };

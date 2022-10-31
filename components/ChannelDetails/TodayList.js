@@ -51,6 +51,11 @@ const TodayList = (props) => {
                 "minutes"
               );
             }
+            let duration = moment.duration(afterTime.diff(beforeTime));
+            let currentTimeDuration = moment.duration(time.diff(beforeTime));
+            let minutes = parseInt(duration.asMinutes());
+            let currentMinutes = parseInt(currentTimeDuration.asMinutes());
+            let progressPercent = Math.floor((currentMinutes / minutes) * 100);
             if (time.isBetween(beforeTime, afterTime)) {
               prog_arr.push({
                 id: list[i].program_id,
@@ -59,6 +64,7 @@ const TodayList = (props) => {
                 programDesc: list[i].program_desc,
                 programTime: list[i].program_time,
                 tomorrowList: props.tomorrowList,
+                progressPercent: progressPercent,
               });
             } else {
               if (time.isSame(beforeTime)) {
@@ -69,6 +75,7 @@ const TodayList = (props) => {
                   programDesc: list[i].program_desc,
                   programTime: list[i].program_time,
                   tomorrowList: props.tomorrowList,
+                  progressPercent: progressPercent,
                 });
               } else if (beforeTime.isAfter(time)) {
                 prog_arr.push({
@@ -78,6 +85,7 @@ const TodayList = (props) => {
                   programDesc: list[i].program_desc,
                   programTime: list[i].program_time,
                   tomorrowList: props.tomorrowList,
+                  progressPercent: progressPercent,
                 });
               }
             }
@@ -90,7 +98,7 @@ const TodayList = (props) => {
         });
     } catch {}
   }, []);
-  console.log(todayList);
+
   return (
     <>
       {todayList == null ? (
@@ -107,6 +115,7 @@ const TodayList = (props) => {
                 programDesc={item.programDesc}
                 programTime={item.programTime}
                 tomorrowList={item.tomorrowList}
+                progressPercent={item.progressPercent}
               />
             );
           })}

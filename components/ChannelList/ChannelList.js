@@ -13,7 +13,7 @@ let tomorrow = moment().add(1, "days").format("DD MMM").slice(0, -1);
 let chilleCurrentTime = momemtTimeZone()
   .tz("America/Santiago")
   .format("HH:mm:00");
-console.log(chilleCurrentTime);
+
 class ChannelList extends React.Component {
   constructor() {
     super();

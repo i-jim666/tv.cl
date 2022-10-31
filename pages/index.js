@@ -21,7 +21,7 @@ export default function Home() {
       </Head>
 
       <Header setSearch={setSearch} />
-      <Header_Mobile />
+      <Header_Mobile setSearch={setSearch} />
 
       <main className={`main`}>
         <Hero />

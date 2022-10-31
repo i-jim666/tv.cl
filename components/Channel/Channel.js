@@ -9,6 +9,7 @@ import moment from "moment/moment";
 
 const Channel = (props) => {
   var the_img = "";
+
   const [limit, setLimit] = useState(10);
   the_img = (
     <Image
@@ -101,9 +102,12 @@ const Channel = (props) => {
     prog_list.push(
       <Program
         key={rest_of_the_program[i]?.program_id}
+        program_id={rest_of_the_program[i]?.program_id}
         programName={rest_of_the_program[i]?.program_title}
         time={modified_time}
+        logoLink={props.logoLink}
         hasIcon="false"
+        isTomorrow={props.tomorrowList}
       />
     );
   }
@@ -135,11 +139,15 @@ const Channel = (props) => {
 
         <Program
           key={first_program?.program_id}
+          program_id={first_program?.program_id}
           programName={first_program?.program_title}
+          progressPercent={first_program?.progressPercent}
+          logoLink={props.logoLink}
           time={first_program_time}
           // hasIcon = {(props.tomorrowList == true)? false : true}
           hasIcon={false}
           tomorrowList={props.tomorrowList == true ? true : false}
+          isTomorrow={props.tomorrowList}
           className={
             props.tomorrowList == true
               ? "first_program_tomorrow"
