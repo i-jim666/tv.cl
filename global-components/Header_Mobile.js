@@ -33,16 +33,24 @@ const Header_Mobile = (props) => {
           </div>
           <div className="right_col">
             {isShowSearch && (
-              <input
-                type="text"
-                id="search_input"
-                className="search_input"
-                placeholder="Buscar por canal, programa"
-                onChange={(e) => {
-                  setSearch(e.target.value);
-                  document.getElementById("search_input").focus = true;
-                }}
-              />
+            <div className="mob_search_container">
+                <div className="search_input_cross">
+                    <input
+                        type="text"
+                        id="search_input"
+                        className="search_input search_input_mobile"
+                        placeholder="Buscar por canal"
+                        onChange={(e) => {
+                        setSearch(e.target.value);
+                        document.getElementById("search_input").focus = true;
+                        }}
+                    />
+                    <svg onClick={() => seIsShowSearch(false)} width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 1L1 9M1 1L9 9" stroke="#282D34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+    
             )}
             <div className="search__icon">
               <Image
@@ -83,14 +91,14 @@ const Header_Mobile = (props) => {
           </div>
 
           <div className="nav_body">
-            <Link href="#">
+            {/* <Link href="#">
               <div className="item">
                 <Image src={SearchIcon} alt="Search icon" />
                 <span className="text">Canal de búsqueda</span>
               </div>
-            </Link>
+            </Link> */}
 
-            <Link href={process.env.NEXT_PUBLIC_DOMAIN_NAME + "/settings"}>
+            <Link href={process.env.NEXT_PUBLIC_DOMAIN_NAME + "/configuracion"}>
               <div className="item">
                 <SettingsIcon />
                 <span className="text">Personalizar canal</span>

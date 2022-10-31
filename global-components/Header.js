@@ -22,13 +22,13 @@ const Header = (props) => {
               type="text"
               id="search_input"
               className="search_input"
-              placeholder="Buscar por canal, programa"
+              placeholder="Buscar por canal"
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
         </div>
         <div className="settings__icon">
-          <Link href={process.env.NEXT_PUBLIC_DOMAIN_NAME + "/settings"}>
+          <Link href={process.env.NEXT_PUBLIC_DOMAIN_NAME + "/configuracion"}>
             <span>
               <SettingsIcon />
             </span>

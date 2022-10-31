@@ -13,7 +13,7 @@ const Program = (props) => {
   if (props.tomorrowList == false) {
     progress_bar = (
       <div className={`progress ${styles.progress}`}>
-        <div></div>
+        <div style={{ width: `${progressPercent}%` }}></div>
       </div>
     );
   }
@@ -76,7 +76,7 @@ const Program = (props) => {
         {timeIcon}
         <div className={`time ${styles.time}`}>{props.time}</div>
       </div>
-      <p
+      <div
         className={`programName ${styles.programName}`}
         onClick={() => {
           getProgramInfo(props.programName);
@@ -85,7 +85,7 @@ const Program = (props) => {
       >
         {props.programName}
         {progress_bar}
-      </p>
+      </div>
       {isModalOpen && (
         <CustomModal
           isModalOpen={isModalOpen}

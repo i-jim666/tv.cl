@@ -19,11 +19,12 @@ const SingleProgram = (props) => {
     }
   }, []);
 
+
   let progress_bar = "";
   if (props.tomorrowList == false) {
     progress_bar = (
       <div className={`progress`}>
-        <div></div>
+        <div style={{ width: `${progressPercent}%` }}></div>
       </div>
     );
   }

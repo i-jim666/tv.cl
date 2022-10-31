@@ -74,6 +74,8 @@
 }
 
 
+
+
 .header_mob{
     position: fixed;
     top: 0;
@@ -83,6 +85,59 @@
     background-color: #FCFCFC;
     padding: 2px 0;
     border-bottom: 1px solid #ddd;
+
+    .mob_search_container{
+        input{
+            background-color: #ffffff;
+            border: none;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.12), 0px 3px 1px rgba(0, 0, 0, 0.04);
+            border-radius: 0;
+            width: 100%;
+            max-width: 100%;
+
+            font-size: 14px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+
+            &:focus{
+                border: none;
+            }
+        }
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+
+        .search_input_cross{
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+            svg{
+                position: absolute;
+                z-index: 9999;
+                right: 25px;
+                top: 14px;
+                width: 13px;
+                height: 13px;
+            }
+        }
+
+        -webkit-animation: revealSearch;
+        animation: revealSearch;
+        animation-duration: 800ms;
+        animation-fill-mode: forwards;
+
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE3LjUgMTcuNUwxMi41IDEyLjVNMTQuMTY2NyA4LjMzMzMzQzE0LjE2NjcgMTEuNTU1IDExLjU1NSAxNC4xNjY3IDguMzMzMzMgMTQuMTY2N0M1LjExMTY3IDE0LjE2NjcgMi41IDExLjU1NSAyLjUgOC4zMzMzM0MyLjUgNS4xMTE2NyA1LjExMTY3IDIuNSA4LjMzMzMzIDIuNUMxMS41NTUgMi41IDE0LjE2NjcgNS4xMTE2NyAxNC4xNjY3IDguMzMzMzNaIiBzdHJva2U9IiM3MDdBODciIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==");
+        background-repeat: no-repeat;
+        background-position-y: center;
+        background-position-x: 10px;
+
+
+        &:focus{
+            border: none;
+        }
+    }
 
     display: none;
     @media (max-width: 1200px){

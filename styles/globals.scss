@@ -99,6 +99,17 @@ span{
   }
 }
 
+@keyframes revealSearch {
+  0%{
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
 .channel,
 .single__program{
   opacity: 0;
@@ -108,14 +119,14 @@ span{
   animation-fill-mode: forwards;
 }
 
-@for $i from 1 through 100 {
-  .channel:nth-child(#{$i}) {
-    animation-delay: calc($i * 50ms);
-  }
-  .single__program:nth-child(#{$i}) {
-    animation-delay: calc($i * 50ms);
-  }
-}
+// @for $i from 1 through 100 {
+//   .channel:nth-child(#{$i}) {
+//     animation-delay: calc($i * 50ms);
+//   }
+//   .single__program:nth-child(#{$i}) {
+//     animation-delay: calc($i * 50ms);
+//   }
+// }
 
 .generic__content{
   .container{
@@ -293,7 +304,7 @@ main{
 
     div{
         position: absolute;
-        width: 80%;
+        width: 0%;
         height: 2px;
         border-radius: 8px;
         background-color: #282D34;
@@ -321,5 +332,76 @@ main{
     .progress{
       display: block;
     }
+  }
+}
+
+
+
+// Modal style fixes
+
+.modal__content{
+  padding: 20px 15px;
+  padding-bottom: 25px;
+
+  .logo{
+    display: flex;
+    gap: 10px;
+
+    margin-bottom: 10px;
+  }
+
+  p.title{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 4px;
+  }
+  p.type{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 15px;
+    color: #707A87;
+    margin-bottom: 10px;
+  }
+  p.time{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #596068;
+  }
+
+  p.desc{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #596068;
+  }
+
+  h4{
+    margin-bottom: 10px;
+    margin-top: 15px;
+  }
+}
+
+.ReactModal__Content > div > span{
+  max-height: 350px;
+
+  @media (max-width: 600px){
+    max-height: 190px;
+  }
+}
+
+.ReactModal__Overlay{
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.dynamic_image_container{
+  position: relative;
+  svg{
+    position: absolute;
+    z-index: 999;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
   }
 }
