@@ -46,6 +46,7 @@
     overflow: hidden;
     margin-top: 16px;
     padding-bottom: 20px;
+    height: calc(100% - 65px);
 
     @media (max-width: 600px){
         .box__header{
