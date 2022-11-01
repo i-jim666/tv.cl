@@ -149,7 +149,7 @@ function CustomModal(props) {
                 />
                 <div className="modal_channel_info">
                   <p className="title">
-                    {channelDetails?.channel_name} {channelDetails?.program_title}
+                    {channelDetails?.program_title}
                   </p>
                   <p className="type">
                     {channelDetails?.program_type}
