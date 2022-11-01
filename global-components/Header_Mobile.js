@@ -105,7 +105,7 @@ const Header_Mobile = (props) => {
               </div>
             </Link>
 
-            <Link href={process.env.NEXT_PUBLIC_DOMAIN_NAME + "/about-us"}>
+            <Link href={process.env.NEXT_PUBLIC_DOMAIN_NAME + "/acerca-de"}>
               <div className="item">
                 <Image src={TvIcon} alt="TV icon" />
                 <span className="text">Acerca de tv.cl</span>

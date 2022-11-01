@@ -29,6 +29,7 @@ const ChannelList = () => {
   }
 
   useEffect(() => {
+    
     try {
       let converted_name = convertToFit(channel_name);
 
@@ -57,6 +58,7 @@ const ChannelList = () => {
       channel_logo = Logos[converted_name];
 
       setRenderlogo(<Image src={channel_logo} alt="Channel logo" />);
+
     } catch {}
   }, []);
 

@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
+
 
 // Global components
 import Header from '../global-components/Header'
@@ -8,7 +10,6 @@ import Footer from '../global-components/Footer'
 import Hero from '../components/Hero/Hero'
 import ChannelDetails from '../components/ChannelDetails/ChannelDetails'
 import Header_Mobile from '../global-components/Header_Mobile'
-
 
 
 export default function ChannelDetailsPage() {
