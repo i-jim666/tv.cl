@@ -45,7 +45,7 @@ class SettinglList extends React.Component {
                             <h3 className="title">Configuración de canales</h3>
                             <div className={`channel_filter filter`}>
                                 <div onClick={this.showSelection} className={`today ${this.state.showSelection ? 'active' : ''}`}>Canales</div>
-                                <div onClick={this.showOrdered} className={`tomorrow ${this.state.showOrdered ? 'active' : ''}`}>Ordenar la lista de canales</div>
+                                <div onClick={this.showOrdered} className={`tomorrow ${this.state.showOrdered ? 'active' : ''}`}>Ordenar la lista</div>
                             </div>
                         </div>
                     </div>
