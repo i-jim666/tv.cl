@@ -160,7 +160,7 @@ function CustomModal(props) {
                 </div>
               </div>
               <h4>Acerca programación</h4>
-              <p className="desc" style={{ maxWidth: "500px", maxHeight: "150px", overflowY: "auto" }}>{channelDetails?.program_desc}</p>
+              <p className="desc" style={{ maxWidth: "500px", maxHeight: "150px", overflowY: "auto" }}>{channelDetails?.program_desc.replace(/(.{350})..+/, "$1…")}</p>
             </div>
           </>
         )}
