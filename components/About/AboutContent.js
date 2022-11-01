@@ -6,14 +6,14 @@ import AboutTvIcon from '../../images/icons/AboutTvIcon.svg'
 import AboutMailboxIcon from '../../images/icons/AboutMailboxIcon.svg'
 
 const AboutContent = () => {
-    let title = 'About tv.cl';
-    let desc = 'TV.cl is one of the largest and most popular online TV guides in the Chile. We\'ll show you the TV listings for all Chile TV channels in a user friendly format, available on your computer, phone or tablet.'
+    let title = 'Acerda de tv.cl';
+    let desc1 = 'TV.cl se inició en noviembre de 2022 con la ambición de mostrar el horario de TV actual de una manera simple y flexible para los televidentes chilenos.'
 
-    let content_1_title = 'History';
-    let content_1_desc = `TV.cl was built by a couple of TV enthusiasts (who also happened to be programmers) that wanted a better way to find out what was on TV every night.\n \n Our goal was to create the most user friendly TV guide on the planet. A site that even your grandmother can use and enjoy) Just a really good tv guide and nothing else - fast, easy, on your computer or on your mobile device. We hope you\'ll like it!`;
+    let content_1_title = 'Historia';
+    let content_1_desc = `TV.cl en realidad tiene un propósito: Simplicidad. Debería ser fácil usar nuestro servicio. Y nuestro servicio tiene la ambición de mostrar el horario de TV actualizado de hoy, ¡rápida y fácilmente!`;
 
-    let content_2_title = 'Want to get in touch?';
-    let content_2_desc = 'Feedback, questions, help, partnerships? Please send an email to hello@tv.cl and we\'ll get back to you as soon as we can.';
+    let content_2_title = 'Quiere ponerse en contacto?';
+    let content_2_desc = 'TV.cl fue fundada por dos empresarios suecos, Naim Murseli y Baki Sahini. Si tiene alguna pregunta con respecto a este sitio web o nuestra política de privacidad, contáctenos a: info@tv.cl.';
 
     return (
         <section className="about__content">
@@ -22,7 +22,7 @@ const AboutContent = () => {
                     <Image src={AboutImg} alt="About image" />
                 </div>
                 <h2>{title}</h2>
-                <p>{desc}</p>
+                <p>{desc1}</p>
 
                 <div className="point_content">
 

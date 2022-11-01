@@ -132,4 +132,20 @@
             }
         }
     }
+
+    .order__channel{
+        .count{
+            display: none;
+        }
+        .name_count{
+            display: flex;
+            align-items: center;
+        }
+
+        .flex_container{
+            display: flex;
+            align-items: center;
+        }
+    }
 }
+
