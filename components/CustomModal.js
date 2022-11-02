@@ -55,7 +55,7 @@ function CustomModal(props) {
   );
 
   let click_outside = () => {
-    document.querySelector('.ReactModal__Overlay').remove();
+    handleClose()
   }
 
   const [dynamic_image, setDynamic] = useState(the_img);
@@ -67,7 +67,7 @@ function CustomModal(props) {
           src={img}
           alt="Program image"
           width="100%"
-          height="196px"
+          height={196}
           layout="responsive"
           objectFit="cover"
           objectPosition="top"
@@ -117,7 +117,7 @@ function CustomModal(props) {
             </g>
             <path d="M25 14L17 22M17 14L25 22" stroke="#282D34" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             <defs>
-              <filter id="filter0_d_241_31215" x="0" y="0" width="42" height="42" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <filter id="filter0_d_241_31215" x="0" y="0" width="42" height="42" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                 <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
                 <feMorphology radius="3" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_241_31215"/>

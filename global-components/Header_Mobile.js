@@ -39,7 +39,7 @@ const Header_Mobile = (props) => {
                         type="text"
                         id="search_input"
                         className="search_input search_input_mobile"
-                        placeholder="Buscar por canal"
+                        placeholder="Buscar por canal, programa"
                         onChange={(e) => {
                         setSearch(e.target.value);
                         document.getElementById("search_input").focus = true;
