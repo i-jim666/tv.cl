@@ -87,9 +87,21 @@ const TomorrowList = (props) => {
     }
   }, [tomorrowList]);
   useEffect(() => {
-    const filteredList = (tomorrowList || []).filter((channel) =>
-      channel.channelName.toLowerCase().includes(search.toLowerCase())
-    );
+    var filteredList = (tomorrowList || []).filter((channel) => {
+      const findProgram = channel.programList.find((program) =>
+        program.program_title
+          .toLowerCase()
+          .includes(search.trim().toLowerCase())
+      );
+
+      if (findProgram) {
+        return channel;
+      }
+      return channel.channelName
+        .toLowerCase()
+        .includes(search.trim().toLowerCase());
+    });
+
     setFilterList(filteredList);
   }, [search, tomorrowList]);
   return (

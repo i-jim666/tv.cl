@@ -35,7 +35,6 @@ const TodayList = (props) => {
 
       axios(config)
         .then(function (response) {
-          console.log(response);
           let items = response.data;
           let items_arr = [];
           items.map((elem, index) => {
@@ -148,12 +147,22 @@ const TodayList = (props) => {
   }, [todayList]);
 
   useEffect(() => {
-    var filteredList = (todayList || []).filter((channel) =>
-      channel.channelName.toLowerCase().includes(search.toLowerCase())
-    );
+    var filteredList = (todayList || []).filter((channel) => {
+      const findProgram = channel.programList.find((program) =>
+        program.program_title
+          .toLowerCase()
+          .includes(search.trim().toLowerCase())
+      );
 
-    setFilterList(filteredList)
+      if (findProgram) {
+        return channel;
+      }
+      return channel.channelName
+        .toLowerCase()
+        .includes(search.trim().toLowerCase());
+    });
 
+    setFilterList(filteredList);
   }, [search, todayList]);
   return (
     <ClientOnly>

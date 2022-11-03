@@ -13,7 +13,7 @@ const TodayList = (props) => {
 
   const { query } = useRouter();
   var channel_name = query.channel;
-  console.log(query.channel);
+
   useEffect(() => {
     var prog_arr = [];
 

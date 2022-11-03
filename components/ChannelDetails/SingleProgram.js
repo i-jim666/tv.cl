@@ -3,7 +3,7 @@ import moment from "moment/moment";
 
 const SingleProgram = (props) => {
   const { progressPercent } = props;
-  console.log("progressPercent details", progressPercent);
+
   let converted_time = moment(props.programTime, "HH:mm").format("HH:mm");
 
   let processed_desc = props.programDesc;
@@ -18,7 +18,6 @@ const SingleProgram = (props) => {
       processed_desc = processed_desc.replace(/(.{145})..+/, "$1…");
     }
   }, []);
-
 
   let progress_bar = "";
   if (props.tomorrowList == false) {

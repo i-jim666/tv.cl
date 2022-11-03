@@ -61,7 +61,6 @@ const OrderedList = () => {
     setRenderer(items);
   };
   const onSortEnd = (result) => {
-    console.log("result", result);
     const items = Array.from(renderer);
     const [reorderItem] = items.splice(result.oldIndex, 1);
     items.splice(result.newIndex, 0, reorderItem);

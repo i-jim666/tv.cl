@@ -19,7 +19,7 @@ const customStyles = {
     maxWidth: "519px",
     width: "90%",
     borderRadius: "15px",
-    boxShadow: "0px 26px 39px 10px rgba(16, 28, 35, 0.35)"
+    boxShadow: "0px 26px 39px 10px rgba(16, 28, 35, 0.35)",
   },
 };
 
@@ -37,14 +37,7 @@ function CustomModal(props) {
     progressPercent,
     tomorrowList,
   } = props;
-  console.log(
-    "program_id",
-    program_id,
-    logoLink,
-    isTomorrow,
-    progressPercent,
-    tomorrowList
-  );
+
   let the_img = (
     <Image
       src={ProgramImg}
@@ -55,8 +48,8 @@ function CustomModal(props) {
   );
 
   let click_outside = () => {
-    handleClose()
-  }
+    handleClose();
+  };
 
   const [dynamic_image, setDynamic] = useState(the_img);
   const [channelDetails, setChannelDetails] = useState(null);
@@ -94,14 +87,12 @@ function CustomModal(props) {
 
       axios(config)
         .then(function (response) {
-          console.log("response", response);
           setChannelDetails(response.data.data);
         })
         .catch(function (error) {
           console.log(error);
         });
     } catch {}
-
   }, [program_id]);
   return (
     <ClientOnly>
@@ -111,22 +102,67 @@ function CustomModal(props) {
         style={customStyles}
       >
         <div className="dynamic_image_container">
-          <svg onClick={()=>{click_outside()}} width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            onClick={() => {
+              click_outside();
+            }}
+            width="42"
+            height="42"
+            viewBox="0 0 42 42"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <g filter="url(#filter0_d_241_31215)">
-              <circle cx="21" cy="18" r="12" fill="white"/>
+              <circle cx="21" cy="18" r="12" fill="white" />
             </g>
-            <path d="M25 14L17 22M17 14L25 22" stroke="#282D34" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path
+              d="M25 14L17 22M17 14L25 22"
+              stroke="#282D34"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
             <defs>
-              <filter id="filter0_d_241_31215" x="0" y="0" width="42" height="42" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                <feMorphology radius="3" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_241_31215"/>
-                <feOffset dy="3"/>
-                <feGaussianBlur stdDeviation="3"/>
-                <feComposite in2="hardAlpha" operator="out"/>
-                <feColorMatrix type="matrix" values="0 0 0 0 0.213125 0 0 0 0 0.231962 0 0 0 0 0.258333 0 0 0 0.25 0"/>
-                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_241_31215"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_241_31215" result="shape"/>
+              <filter
+                id="filter0_d_241_31215"
+                x="0"
+                y="0"
+                width="42"
+                height="42"
+                filterUnits="userSpaceOnUse"
+                colorInterpolationFilters="sRGB"
+              >
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                  in="SourceAlpha"
+                  type="matrix"
+                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha"
+                />
+                <feMorphology
+                  radius="3"
+                  operator="dilate"
+                  in="SourceAlpha"
+                  result="effect1_dropShadow_241_31215"
+                />
+                <feOffset dy="3" />
+                <feGaussianBlur stdDeviation="3" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix
+                  type="matrix"
+                  values="0 0 0 0 0.213125 0 0 0 0 0.231962 0 0 0 0 0.258333 0 0 0 0.25 0"
+                />
+                <feBlend
+                  mode="normal"
+                  in2="BackgroundImageFix"
+                  result="effect1_dropShadow_241_31215"
+                />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="effect1_dropShadow_241_31215"
+                  result="shape"
+                />
               </filter>
             </defs>
           </svg>
@@ -148,19 +184,27 @@ function CustomModal(props) {
                   objectPosition="top"
                 />
                 <div className="modal_channel_info">
-                  <p className="title">
-                    {channelDetails?.program_title}
-                  </p>
-                  <p className="type">
-                    {channelDetails?.program_type}
-                  </p>
+                  <p className="title">{channelDetails?.program_title}</p>
+                  <p className="type">{channelDetails?.program_type}</p>
                   <p className="time">
-                    {isTomorrow ? "Mañana" : "Hoy"} {channelDetails?.program_time.slice(0, -3)}
+                    {isTomorrow ? "Mañana" : "Hoy"}{" "}
+                    {channelDetails?.program_time.slice(0, -3)}
                   </p>
                 </div>
               </div>
               <h4>Acerca programación</h4>
-              <p className="desc" style={{ maxWidth: "500px", maxHeight: "150px", overflowY: "auto" }}>{(channelDetails.program_desc == 'Not Available')? 'No disponible' : channelDetails.program_desc.replace(/(.{350})..+/, "$1…")}</p>
+              <p
+                className="desc"
+                style={{
+                  maxWidth: "500px",
+                  maxHeight: "150px",
+                  overflowY: "auto",
+                }}
+              >
+                {channelDetails.program_desc == "Not Available"
+                  ? "No disponible"
+                  : channelDetails.program_desc.replace(/(.{350})..+/, "$1…")}
+              </p>
             </div>
           </>
         )}
