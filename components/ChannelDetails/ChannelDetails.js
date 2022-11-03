@@ -60,7 +60,7 @@ const ChannelList = () => {
       setRenderlogo(<Image src={channel_logo} alt="Channel logo" />);
 
     } catch {}
-  }, []);
+  }, [channel_name]);
 
   const [todayState, setTodayState] = useState(true);
   const [tomorrowState, setTomorrowState] = useState(false);

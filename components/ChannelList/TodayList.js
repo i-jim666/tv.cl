@@ -148,10 +148,12 @@ const TodayList = (props) => {
   }, [todayList]);
 
   useEffect(() => {
-    const filteredList = (todayList || []).filter((channel) =>
+    var filteredList = (todayList || []).filter((channel) =>
       channel.channelName.toLowerCase().includes(search.toLowerCase())
     );
-    setFilterList(filteredList);
+
+    setFilterList(filteredList)
+
   }, [search, todayList]);
   return (
     <ClientOnly>

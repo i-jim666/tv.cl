@@ -55,7 +55,7 @@ function CustomModal(props) {
   );
 
   let click_outside = () => {
-    document.querySelector('.ReactModal__Overlay').remove();
+    handleClose()
   }
 
   const [dynamic_image, setDynamic] = useState(the_img);
@@ -67,7 +67,7 @@ function CustomModal(props) {
           src={img}
           alt="Program image"
           width="100%"
-          height="196px"
+          height={196}
           layout="responsive"
           objectFit="cover"
           objectPosition="top"
@@ -111,14 +111,14 @@ function CustomModal(props) {
         style={customStyles}
       >
         <div className="dynamic_image_container">
-          <svg onClick={click_outside} width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg onClick={()=>{click_outside()}} width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_241_31215)">
               <circle cx="21" cy="18" r="12" fill="white"/>
             </g>
-            <path d="M25 14L17 22M17 14L25 22" stroke="#282D34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M25 14L17 22M17 14L25 22" stroke="#282D34" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             <defs>
-              <filter id="filter0_d_241_31215" x="0" y="0" width="42" height="42" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <filter id="filter0_d_241_31215" x="0" y="0" width="42" height="42" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
                 <feMorphology radius="3" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_241_31215"/>
                 <feOffset dy="3"/>
@@ -149,7 +149,7 @@ function CustomModal(props) {
                 />
                 <div className="modal_channel_info">
                   <p className="title">
-                    {channelDetails?.channel_name} {channelDetails?.program_title}
+                    {channelDetails?.program_title}
                   </p>
                   <p className="type">
                     {channelDetails?.program_type}
@@ -160,7 +160,7 @@ function CustomModal(props) {
                 </div>
               </div>
               <h4>Acerca programación</h4>
-              <p className="desc" style={{ maxWidth: "500px", maxHeight: "150px", overflowY: "auto" }}>{channelDetails?.program_desc}</p>
+              <p className="desc" style={{ maxWidth: "500px", maxHeight: "150px", overflowY: "auto" }}>{(channelDetails.program_desc == 'Not Available')? 'No disponible' : channelDetails.program_desc.replace(/(.{350})..+/, "$1…")}</p>
             </div>
           </>
         )}

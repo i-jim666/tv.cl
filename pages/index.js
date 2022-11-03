@@ -17,6 +17,7 @@ export default function Home() {
       <Head>
         <title>TV.cl: Hoy en TV - Guía de TV de Chile</title>
         <meta name="description" content="Mesa de TV para todos los canales. ¿Te preguntas qué hay en la televisión en este momento? ¿Buscas el horario de TV de mañana? TV.cl tiene una completa guía de TV para ti." />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
