@@ -24,18 +24,19 @@ const TodayList = (props) => {
       };
 
       var config = {
-        method: "POST",
-        url: "https://prod.api.tv.cl/program/get_all_programs",
-        headers: {
-          "x-api-key": "0jVCwT3KSf1YpiUwzpJr15GHFdSF0he83fSUDq7f",
-          "Content-Type": "application/json",
-        },
-        data: data,
+        // method: "POST",
+        url: "https://prod.api.tv.cl/today_programs",
+        // headers: {
+        //   "x-api-key": "0jVCwT3KSf1YpiUwzpJr15GHFdSF0he83fSUDq7f",
+        //   "Content-Type": "application/json",
+        // },
+        // data: data,
       };
 
       axios(config)
         .then(function (response) {
-          let items = response.data.data;
+          console.log(response);
+          let items = response.data;
           let items_arr = [];
           items.map((elem, index) => {
             let updatedProgramList = [];
