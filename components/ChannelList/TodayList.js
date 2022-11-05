@@ -4,6 +4,7 @@ import Loader from "../../global-components/Loader";
 import Logos from "../../global-components/AllLogos.js";
 import moment from "moment";
 import ClientOnly from "../ClientOnly";
+import { nanoid } from "nanoid";
 
 const TodayList = (props) => {
   const { chilleCurrentTime, search } = props;
@@ -175,7 +176,7 @@ const TodayList = (props) => {
               {(filterList || []).map((item) => {
                 return (
                   <Channel
-                    key={item.key}
+                    key={nanoid()}
                     logoLink={item.logoLink}
                     channelName={item.channelName}
                     channelLink={item.channelLink}
@@ -190,18 +191,18 @@ const TodayList = (props) => {
               {channelList.map((item, index) => {
                 let isChannelExist;
                 if (channelList?.[index].checked == false) {
-                  return <></>;
+                  return <div key={nanoid()}></div>;
                 } else {
                   isChannelExist = todayList.find(
                     (channel) => channel.channelName == item.channelName
                   );
                 }
                 if (!isChannelExist) {
-                  return <></>;
+                  return <div key={nanoid()}></div>;
                 }
                 return (
                   <Channel
-                    key={isChannelExist.key}
+                    key={nanoid()}
                     logoLink={isChannelExist.logoLink}
                     channelName={isChannelExist.channelName}
                     channelLink={isChannelExist.channelLink}
