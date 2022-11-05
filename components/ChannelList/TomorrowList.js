@@ -3,6 +3,7 @@ import Channel from "../Channel/Channel";
 import Loader from "../../global-components/Loader";
 import Logos from "../../global-components/AllLogos.js";
 import ClientOnly from "../ClientOnly";
+import { nanoid } from "nanoid";
 
 const TomorrowList = (props) => {
   const { search } = props;
@@ -12,12 +13,12 @@ const TomorrowList = (props) => {
       .replace(/[^\w-]+/g, "");
   }
 
-  const slugify = str =>
+  const slugify = (str) =>
     str
       .toLowerCase()
       .trim()
-      .replace(/[\s_-]+/g, '-')
-      .replace(/^-+|-+$/g, '');
+      .replace(/[\s_-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
 
   const [tomorrowList, setTomorrowList] = useState(null);
   const [channelList, setChannelList] = useState(null);
@@ -71,9 +72,9 @@ const TomorrowList = (props) => {
             }
 
             let channel_slug = slugify(elem.channel_name);
-            
-            if(channel_slug == 'a&e'){
-              channel_slug = 'a-e'
+
+            if (channel_slug == "a&e") {
+              channel_slug = "a-e";
             }
 
             items_arr.push({
@@ -128,7 +129,7 @@ const TomorrowList = (props) => {
               {(filterList || []).map((item) => {
                 return (
                   <Channel
-                    key={item.key}
+                    key={nanoid()}
                     logoLink={item.logoLink}
                     channelName={item.channelName}
                     channelLink={item.channelLink}
@@ -143,18 +144,18 @@ const TomorrowList = (props) => {
               {channelList.map((item, index) => {
                 let isChannelExist;
                 if (channelList?.[index].checked == false) {
-                  return <></>;
+                  return <React.Fragment key={nanoid()}></React.Fragment>;
                 } else {
                   isChannelExist = tomorrowList.find(
                     (channel) => channel.channelName == item.channelName
                   );
                 }
                 if (!isChannelExist) {
-                  return <></>;
+                  return <React.Fragment key={nanoid()}></React.Fragment>;
                 }
                 return (
                   <Channel
-                    key={isChannelExist.key}
+                    key={nanoid()}
                     logoLink={isChannelExist.logoLink}
                     channelName={isChannelExist.channelName}
                     channelLink={isChannelExist.channelLink}

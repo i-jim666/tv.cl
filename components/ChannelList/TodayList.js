@@ -17,12 +17,12 @@ const TodayList = (props) => {
   const [channelList, setChannelList] = useState(null);
   const [filterList, setFilterList] = useState([]);
 
-  const slugify = str =>
+  const slugify = (str) =>
     str
       .toLowerCase()
       .trim()
-      .replace(/[\s_-]+/g, '-')
-      .replace(/^-+|-+$/g, '');
+      .replace(/[\s_-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
 
   useEffect(() => {
     try {
@@ -122,11 +122,10 @@ const TodayList = (props) => {
               }
 
               if (updatedProgramList.length > 0) {
-
                 let channel_slug = slugify(elem.channel_name);
 
-                if(channel_slug == 'a&e'){
-                  channel_slug = 'a-e'
+                if (channel_slug == "a&e") {
+                  channel_slug = "a-e";
                 }
 
                 items_arr.push({
@@ -205,14 +204,14 @@ const TodayList = (props) => {
               {channelList.map((item, index) => {
                 let isChannelExist;
                 if (channelList?.[index].checked == false) {
-                  return <div key={nanoid()}></div>;
+                  return <React.Fragment key={nanoid()}></React.Fragment>;
                 } else {
                   isChannelExist = todayList.find(
                     (channel) => channel.channelName == item.channelName
                   );
                 }
                 if (!isChannelExist) {
-                  return <div key={nanoid()}></div>;
+                  return <React.Fragment key={nanoid()}></React.Fragment>;
                 }
                 return (
                   <Channel
