@@ -4,6 +4,7 @@ import Loader from "../../global-components/Loader";
 import Logos from "../../global-components/AllLogos.js";
 import moment from "moment";
 import ClientOnly from "../ClientOnly";
+import { nanoid } from "nanoid";
 
 const TodayList = (props) => {
   const { chilleCurrentTime, search } = props;
@@ -48,7 +49,7 @@ const TodayList = (props) => {
             let updatedProgramList = [];
             if (elem.program_list.length > 0) {
               let converted_name = convertToFit(elem.channel_name);
-
+              
               if (converted_name == "cdf_bsico") {
                 converted_name = "cdf_basico";
               }
@@ -70,6 +71,10 @@ const TodayList = (props) => {
               if (converted_name == "discovery_home__health") {
                 converted_name = "discovery_home_health";
               }
+              if (converted_name == "ae") {
+                converted_name = "a_e";
+              }
+
               for (let i = 0; i < elem.program_list.length; i++) {
                 let format = "HH:mm:00";
 
@@ -189,7 +194,7 @@ const TodayList = (props) => {
               {(filterList || []).map((item) => {
                 return (
                   <Channel
-                    key={item.key}
+                    key={nanoid()}
                     logoLink={item.logoLink}
                     channelName={item.channelName}
                     channelLink={item.channelLink}
@@ -204,18 +209,18 @@ const TodayList = (props) => {
               {channelList.map((item, index) => {
                 let isChannelExist;
                 if (channelList?.[index].checked == false) {
-                  return <></>;
+                  return <div key={nanoid()}></div>;
                 } else {
                   isChannelExist = todayList.find(
                     (channel) => channel.channelName == item.channelName
                   );
                 }
                 if (!isChannelExist) {
-                  return <></>;
+                  return <div key={nanoid()}></div>;
                 }
                 return (
                   <Channel
-                    key={isChannelExist.key}
+                    key={nanoid()}
                     logoLink={isChannelExist.logoLink}
                     channelName={isChannelExist.channelName}
                     channelLink={isChannelExist.channelLink}

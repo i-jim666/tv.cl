@@ -6,6 +6,7 @@ import ProgramImg from "../../images/card_placeholder.svg";
 import Program from "../Program/Program";
 import Link from "next/link";
 import moment from "moment/moment";
+import { nanoid } from "nanoid";
 
 const Channel = (props) => {
   var the_img = "";
@@ -79,10 +80,9 @@ const Channel = (props) => {
   var rest_of_the_program = props.programList;
   var prog_list = [];
 
-  var first_program_time = moment(
-    first_program?.program_time,
+  var first_program_time = moment(first_program?.program_time, "HH:mm").format(
     "HH:mm"
-  ).format("HH:mm");
+  );
 
   if (limit > rest_of_the_program.length) {
     setLimit(rest_of_the_program.length);
@@ -101,7 +101,7 @@ const Channel = (props) => {
 
     prog_list.push(
       <Program
-        key={rest_of_the_program[i]?.program_id}
+        key={nanoid()}
         program_id={rest_of_the_program[i]?.program_id}
         programName={rest_of_the_program[i]?.program_title}
         time={modified_time}
@@ -138,7 +138,7 @@ const Channel = (props) => {
         {dynamic_image}
 
         <Program
-          key={first_program?.program_id}
+          key={nanoid()}
           program_id={first_program?.program_id}
           programName={first_program?.program_title}
           progressPercent={first_program?.progressPercent}
