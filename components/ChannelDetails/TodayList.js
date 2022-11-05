@@ -11,11 +11,34 @@ let chilleCurrentTime = momemtTimeZone()
 const TodayList = (props) => {
   const [todayList, setTodayList] = useState(null);
 
-  const { query } = useRouter();
-  var channel_name = query.channel;
+  var channel_name = props.channelSlug;
+  
 
   useEffect(() => {
     var prog_arr = [];
+
+    function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    if(channel_name){
+      let name_arr = channel_name.split('-');
+
+      for (let i = 0; i < name_arr.length; i++) {
+        name_arr[i] = capitalizeFirstLetter(name_arr[i])  
+      }
+      channel_name = name_arr.join(' ');
+
+      if(channel_name == 'A E'){
+        channel_name = 'A&E'
+      }
+      if(channel_name == 'Tvn'){
+        channel_name = 'TVN'
+      }
+      if(channel_name == 'Hbo'){
+        channel_name = 'HBO'
+      }
+    }
 
     try {
       var axios = require("axios");
@@ -26,9 +49,9 @@ const TodayList = (props) => {
 
       var config = {
         method: "post",
-        url: "https://prod.api.tv.cl/channel/get_channel_programs",
+        url: "https://prod.api.tv.cl/programs/get-specific-channel-programs",
         headers: {
-          "x-api-key": "u79xCVKGH67EugNIro2rx6GuG5kyCIxF3QWE0SSI",
+          "x-api-key": "odL9OThpGhapypWcIqGRma1gMjTAFeNa53HKBh6g",
           "Content-Type": "application/json",
         },
         data: data,

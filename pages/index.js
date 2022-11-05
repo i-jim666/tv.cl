@@ -1,4 +1,5 @@
-import Head from "next/head";
+// import Head from "next/head";
+import HeadGlobal from "../global-components/HeadGlobal";
 
 // Global components
 import Header from "../global-components/Header";
@@ -14,12 +15,11 @@ export default function Home() {
   const [search, setSearch] = useState("");
   return (
     <div className={`main__wrapper`}>
-      <Head>
-        <title>TV.cl: Hoy en TV - Guía de TV de Chile</title>
-        <meta name="description" content="Mesa de TV para todos los canales. ¿Te preguntas qué hay en la televisión en este momento? ¿Buscas el horario de TV de mañana? TV.cl tiene una completa guía de TV para ti." />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    
+      <HeadGlobal
+        title = "TV.cl: Hoy en TV - Guía de TV de Chile"
+        description = "Mesa de TV para todos los canales. ¿Te preguntas qué hay en la televisión en este momento? ¿Buscas el horario de TV de mañana? TV.cl tiene una completa guía de TV para ti."
+      />
 
       <Header setSearch={setSearch} />
       <Header_Mobile setSearch={setSearch} />
