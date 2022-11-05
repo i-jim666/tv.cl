@@ -77,9 +77,9 @@ function CustomModal(props) {
 
       var config = {
         method: "POST",
-        url: "https://prod.api.tv.cl/details/get_program_details",
+        url: "https://prod.api.tv.cl/details/get-program-details",
         headers: {
-          "x-api-key": "FmRZKGcKF75NsEn4Dwshf8kMHoaZIxXK4Aj07LHO",
+          "x-api-key": "9r0UfwznRo9H1VcNTseyx18NByu9crQ78sfA9CGV",
           "Content-Type": "application/json",
         },
         data: data,

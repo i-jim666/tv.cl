@@ -13,7 +13,7 @@ const Logos = {
     sony: require('../images/channel_icons/sony.png'),
     axn: require('../images/channel_icons/axn.png'),
     warner_channel: require('../images/channel_icons/warner-channel.png'),
-    ae: require('../images/channel_icons/a-e.png'),
+    a_e: require('../images/channel_icons/a-e.png'),
     universal_tv: require('../images/channel_icons/universal-channel.png'),
     fox_sports_3: require('../images/channel_icons/fox-sports-3.png'),
     lifetime: require('../images/channel_icons/lifetime.png'),

@@ -17,6 +17,13 @@ const TodayList = (props) => {
   const [channelList, setChannelList] = useState(null);
   const [filterList, setFilterList] = useState([]);
 
+  const slugify = str =>
+    str
+      .toLowerCase()
+      .trim()
+      .replace(/[\s_-]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+
   useEffect(() => {
     try {
       var axios = require("axios");
@@ -115,12 +122,19 @@ const TodayList = (props) => {
               }
 
               if (updatedProgramList.length > 0) {
+
+                let channel_slug = slugify(elem.channel_name);
+
+                if(channel_slug == 'a&e'){
+                  channel_slug = 'a-e'
+                }
+
                 items_arr.push({
                   key: `${index}today`,
                   swapIndex: index,
                   logoLink: Logos[converted_name],
                   channelName: elem.channel_name,
-                  channelLink: `${process.env.NEXT_PUBLIC_DOMAIN_NAME}/channel-details?channel=${elem.channel_name}`,
+                  channelLink: `${process.env.NEXT_PUBLIC_DOMAIN_NAME}/programacion/${channel_slug}`,
                   programList: updatedProgramList,
                   tomorrowList: false,
                   checked: true,

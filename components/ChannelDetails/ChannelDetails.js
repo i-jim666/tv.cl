@@ -18,13 +18,45 @@ let tomorrow = moment().add(1, "days").format("DD MMM").slice(0, -1);
 
 var img_logo, channel_logo;
 
-const ChannelList = () => {
-  const { query } = useRouter();
-  var channel_name = query.channel;
+const ChannelList = (props) => {
+
+  var channel_name = props.channelSlug;
+  var channel_title = '';
+
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  if(channel_name){
+    let name_arr = [];
+    if(channel_name.includes('-')){
+      name_arr = channel_name.split('-');
+    }
+    else{
+      name_arr.push(channel_name)
+    }
+    
+    for (let i = 0; i < name_arr.length; i++) {
+      name_arr[i] = capitalizeFirstLetter(name_arr[i])  
+    }
+    let channel_title = name_arr.join(' ');
+  
+    if(channel_title == 'A E'){
+      channel_title = 'A&E'
+    }
+    if(channel_title == 'Tvn'){
+      channel_title = 'TVN'
+    }
+    if(channel_title == 'Hbo'){
+      channel_title = 'HBO'
+    }
+  }
+  
 
   function convertToFit(Text) {
     return Text.toLowerCase()
-      .replace(/ /g, "_")
+      .replace(/-/g, "_")
       .replace(/[^\w-]+/g, "");
   }
 
@@ -74,7 +106,7 @@ const ChannelList = () => {
             <div className={`flex_container`}>
               <h3 className={`title`}>
                 <div className="logo">{renderLogo}</div>
-                {channel_name} Programación
+                {channel_title} Programación
               </h3>
               <div className={`channel_filter filter`}>
                 <div
@@ -100,9 +132,9 @@ const ChannelList = () => {
           </div>
           <div className={`programs`}>
             {todayState == true ? (
-              <TodayList tomorrowList={false} />
+              <TodayList tomorrowList={false} channelSlug={props.channelSlug} />
             ) : (
-              <TomorrowList tomorrowList={true} />
+              <TomorrowList tomorrowList={true} channelSlug={props.channelSlug} />
             )}
           </div>
         </div>

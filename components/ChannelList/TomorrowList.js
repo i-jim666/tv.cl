@@ -12,6 +12,13 @@ const TomorrowList = (props) => {
       .replace(/[^\w-]+/g, "");
   }
 
+  const slugify = str =>
+    str
+      .toLowerCase()
+      .trim()
+      .replace(/[\s_-]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+
   const [tomorrowList, setTomorrowList] = useState(null);
   const [channelList, setChannelList] = useState(null);
   const [filterList, setFilterList] = useState([]);
@@ -63,12 +70,18 @@ const TomorrowList = (props) => {
               converted_name = "discovery_home_health";
             }
 
+            let channel_slug = slugify(elem.channel_name);
+            
+            if(channel_slug == 'a&e'){
+              channel_slug = 'a-e'
+            }
+
             items_arr.push({
               key: `${index}tomorrow`,
               swapIndex: index,
               logoLink: Logos[converted_name],
               channelName: elem.channel_name,
-              channelLink: `${process.env.NEXT_PUBLIC_DOMAIN_NAME}/channel-details?channel=${elem.channel_name}`,
+              channelLink: `${process.env.NEXT_PUBLIC_DOMAIN_NAME}/programacion/${channel_slug}`,
               programList: elem.program_list,
               tomorrowList: true,
             });
