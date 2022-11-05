@@ -69,11 +69,18 @@ const Header_Mobile = (props) => {
               </div>
             )}
             <div className="search__icon">
-              <Image
-                src={SearchIcon}
-                alt="Search icon"
-                onClick={() => seIsShowSearch(!isShowSearch)}
-              />
+
+              { 
+                (props.showSearch != 'false')? 
+                  <Image
+                    src={SearchIcon}
+                    alt="Search icon"
+                    onClick={() => seIsShowSearch(!isShowSearch)}
+                  />
+                  : 
+                  '' 
+              }
+
             </div>
             <div className="hamburger__icon" onClick={open_nav}>
               <Image src={HamburgerIcon} alt="Hamburger icon" />
