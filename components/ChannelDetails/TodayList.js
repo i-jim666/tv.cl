@@ -10,7 +10,8 @@ let chilleCurrentTime = momemtTimeZone()
   .format("HH:mm:00");
 const TodayList = (props) => {
   const [todayList, setTodayList] = useState(null);
-
+  const [filterList, setFilterList] = useState([]);
+  const { search } = props;
   var channel_name = props.channelSlug;
 
   useEffect(() => {
@@ -120,6 +121,15 @@ const TodayList = (props) => {
         });
     } catch {}
   }, [channel_name]);
+  useEffect(() => {
+    var filteredList = (todayList || []).filter((program) => {
+      return program.programName
+        .toLowerCase()
+        .includes(search.trim().toLowerCase());
+    });
+
+    setFilterList(filteredList);
+  }, [search, todayList]);
 
   return (
     <>
@@ -127,20 +137,41 @@ const TodayList = (props) => {
         <Loader />
       ) : (
         <>
-          {todayList.map((item, index) => {
-            return (
-              <SingleProgram
-                key={nanoid()}
-                id={item.id}
-                programName={item.programName}
-                programType={item.programType}
-                programDesc={item.programDesc}
-                programTime={item.programTime}
-                tomorrowList={item.tomorrowList}
-                progressPercent={item.progressPercent}
-              />
-            );
-          })}
+          {search.length != 0 ? (
+            <>
+              {(filterList || []).map((item) => {
+                return (
+                  <SingleProgram
+                    key={nanoid()}
+                    id={item.id}
+                    programName={item.programName}
+                    programType={item.programType}
+                    programDesc={item.programDesc}
+                    programTime={item.programTime}
+                    tomorrowList={item.tomorrowList}
+                    progressPercent={item.progressPercent}
+                  />
+                );
+              })}
+            </>
+          ) : (
+            <>
+              {todayList.map((item, index) => {
+                return (
+                  <SingleProgram
+                    key={nanoid()}
+                    id={item.id}
+                    programName={item.programName}
+                    programType={item.programType}
+                    programDesc={item.programDesc}
+                    programTime={item.programTime}
+                    tomorrowList={item.tomorrowList}
+                    progressPercent={item.progressPercent}
+                  />
+                );
+              })}
+            </>
+          )}
         </>
       )}
     </>

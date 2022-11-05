@@ -6,7 +6,9 @@ import moment from "moment/moment";
 import { nanoid } from "nanoid";
 
 const TomorrowList = (props) => {
-  const [tomorrowList, setTomorrowList] = useState(<Loader />);
+  const { search } = props;
+  const [tomorrowList, setTomorrowList] = useState(null);
+  const [filterList, setFilterList] = useState([]);
 
   var channel_name = props.channelSlug;
 
@@ -57,16 +59,13 @@ const TomorrowList = (props) => {
         .then(function (response) {
           let list = response.data.data.program_list;
           list.map((elem) => {
-            prog_arr.push(
-              <SingleProgram
-                key={nanoid()}
-                id={elem.program_id}
-                programName={elem.program_title}
-                programType={elem.program_type}
-                programDesc={elem.program_desc}
-                programTime={elem.program_time}
-              />
-            );
+            prog_arr.push({
+              id: elem.program_id,
+              programName: elem.program_title,
+              programType: elem.program_type,
+              programDesc: elem.program_desc,
+              programTime: elem.program_time,
+            });
           });
 
           setTomorrowList(prog_arr);
@@ -76,8 +75,57 @@ const TomorrowList = (props) => {
         });
     } catch {}
   }, []);
+  useEffect(() => {
+    var filteredList = (tomorrowList || []).filter((program) => {
+      return program.programName
+        .toLowerCase()
+        .includes(search.trim().toLowerCase());
+    });
 
-  return <>{tomorrowList}</>;
+    setFilterList(filteredList);
+  }, [search, tomorrowList]);
+
+  return (
+    <>
+      {tomorrowList == null ? (
+        <Loader />
+      ) : (
+        <>
+          {search.length != 0 ? (
+            <>
+              {(filterList || []).map((item) => {
+                return (
+                  <SingleProgram
+                    key={nanoid()}
+                    id={item.id}
+                    programName={item.programName}
+                    programType={item.programType}
+                    programDesc={item.programDesc}
+                    programTime={item.programTime}
+                  />
+                );
+              })}
+            </>
+          ) : (
+            <>
+              {tomorrowList.map((item, index) => {
+                return (
+                  <SingleProgram
+                    key={nanoid()}
+                    id={item.id}
+                    programName={item.programName}
+                    programType={item.programType}
+                    programDesc={item.programDesc}
+                    programTime={item.programTime}
+                  />
+                );
+              })}
+            </>
+          )}
+        </>
+      )}
+    </>
+  );
 };
 
 export default TomorrowList;

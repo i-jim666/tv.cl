@@ -6,6 +6,7 @@ import Link from "next/link";
 
 const Header = (props) => {
   const { setSearch } = props;
+
   return (
     <div id="header" className="header">
       <div className="container">
