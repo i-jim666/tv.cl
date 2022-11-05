@@ -415,3 +415,12 @@ main{
 .box__header{
   height: 48px;
 }
+
+
+.channel__wrapper{
+  .title__filter{
+    .logo span{
+      min-width: 52px !important;
+    }
+  }
+}

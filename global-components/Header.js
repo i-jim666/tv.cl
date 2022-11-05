@@ -19,13 +19,13 @@ const Header = (props) => {
         </div>
         <div className="search__box">
           <div className="input_holder">
-            <input
-              type="text"
-              id="search_input"
-              className="search_input"
-              placeholder="Buscar por canal, programa"
-              onChange={(e) => setSearch(e.target.value)}
-            />
+            { 
+              (props.showSearch != 'false')? 
+                <input type="text" id="search_input" className="search_input" placeholder="Buscar por canal, programa" 
+                onChange={(e) => setSearch(e.target.value)} /> 
+                : 
+                '' 
+            }
           </div>
         </div>
         <div className="settings__icon">

@@ -22,7 +22,7 @@ const SelectChannel = (props) => {
           </div>
         </div>
         <div className="right_col">
-          <label for="check__fox-tv">
+          <label htmlFor="check__fox-tv">
             <input
               type="checkbox"
               channelName={props.channelName}

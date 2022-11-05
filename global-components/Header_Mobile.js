@@ -3,6 +3,7 @@ import Image from "next/image";
 import Logo from "../public/tvcl.svg";
 import HamburgerIcon from "../images/icons/HamburgerIcon.svg";
 import SearchIcon from "../images/icons/SearchIcon.svg";
+import HomeIcon from "../images/icons/HomeIcon.svg";
 import SettingsIcon from "../images/icons/SettingsIcon";
 import TvIcon from "../images/icons/TvIcon.svg";
 
@@ -84,7 +85,7 @@ const Header_Mobile = (props) => {
       <div className={`nav_container ${navStatus}`}>
         <div className="navigation">
           <div className="nav__head">
-            <Image src={Logo} alt="Logo" width={45} height={28} />
+            <Image src={Logo} alt="Logo" width={60} />
 
             <div id="close_nav" onClick={close_nav}>
               <svg
@@ -106,12 +107,12 @@ const Header_Mobile = (props) => {
           </div>
 
           <div className="nav_body">
-            {/* <Link href="#">
+            <Link href={process.env.NEXT_PUBLIC_DOMAIN_NAME}>
               <div className="item">
-                <Image src={SearchIcon} alt="Search icon" />
-                <span className="text">Canal de búsqueda</span>
+                <Image src={HomeIcon} alt="Search icon" />
+                <span className="text">Programacion</span>
               </div>
-            </Link> */}
+            </Link>
 
             <Link href={process.env.NEXT_PUBLIC_DOMAIN_NAME + "/configuracion"}>
               <div className="item">

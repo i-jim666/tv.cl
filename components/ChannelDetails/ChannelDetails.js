@@ -20,39 +20,15 @@ var img_logo, channel_logo;
 
 const ChannelDetails = (props) => {
   var channel_name = props.channelSlug;
-  var channel_title = "";
-  console.log(props);
+  
+  
+  var [channel_title, setChannelTitle] = useState('');
+
+
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
-<<<<<<< HEAD
-
-  if (channel_name) {
-    let name_arr = [];
-    if (channel_name.includes("-")) {
-      name_arr = channel_name.split("-");
-    } else {
-      name_arr.push(channel_name);
-    }
-
-    for (let i = 0; i < name_arr.length; i++) {
-      name_arr[i] = capitalizeFirstLetter(name_arr[i]);
-    }
-    let channel_title = name_arr.join(" ");
-
-    if (channel_title == "A E") {
-      channel_title = "A&E";
-    }
-    if (channel_title == "Tvn") {
-      channel_title = "TVN";
-    }
-    if (channel_title == "Hbo") {
-      channel_title = "HBO";
-    }
-  }
-=======
   
->>>>>>> f5894743553ced603cd4c1f2765cd98969681485
 
   function convertToFit(Text) {
     return Text.toLowerCase()
@@ -61,8 +37,6 @@ const ChannelDetails = (props) => {
   }
 
   useEffect(() => {
-<<<<<<< HEAD
-=======
 
     if(channel_name){
       let name_arr = [];
@@ -76,7 +50,8 @@ const ChannelDetails = (props) => {
       for (let i = 0; i < name_arr.length; i++) {
         name_arr[i] = capitalizeFirstLetter(name_arr[i])  
       }
-      let channel_title = name_arr.join(' ');
+
+      channel_title = name_arr.join(' ');
     
       if(channel_title == 'A E'){
         channel_title = 'A&E'
@@ -90,9 +65,37 @@ const ChannelDetails = (props) => {
       if(channel_title == 'Axn'){
         channel_title = 'AXN'
       }
+      if(channel_title == 'Fox Sports 3'){
+        channel_title = 'FOX Sports 3'
+      }
+      if(channel_title == 'Hbo 2'){
+        channel_title = 'HBO 2'
+      }
+      if(channel_title == 'Cnn Chile'){
+        channel_title = 'CNN Chile'
+      }
+      if(channel_title == '13c'){
+        channel_title = '13C'
+      }
+      if(channel_title == 'Tnt'){
+        channel_title = 'TNT'
+      }
+      if(channel_title == 'Universal Tv'){
+        channel_title = 'Universal TV'
+      }
+      if(channel_title == 'Fx'){
+        channel_title = 'FX'
+      }
+      if(channel_title == 'Fox Sports Básico'){
+        channel_title = 'FOX Sports Básico'
+      }
+      if(channel_title == 'Tyc Sports'){
+        channel_title = 'TyC Sports'
+      }
+      
+      setChannelTitle(channel_title)
     }
     
->>>>>>> f5894743553ced603cd4c1f2765cd98969681485
     try {
       let converted_name = convertToFit(channel_name);
 
@@ -122,7 +125,7 @@ const ChannelDetails = (props) => {
 
       setRenderlogo(<Image src={channel_logo} alt="Channel logo" />);
     } catch {}
-  }, [channel_name]);
+  }, [channel_name, channel_title]);
 
   const [todayState, setTodayState] = useState(true);
   const [tomorrowState, setTomorrowState] = useState(false);
