@@ -49,7 +49,7 @@ const TodayList = (props) => {
             let updatedProgramList = [];
             if (elem.program_list.length > 0) {
               let converted_name = convertToFit(elem.channel_name);
-
+              
               if (converted_name == "cdf_bsico") {
                 converted_name = "cdf_basico";
               }
@@ -71,6 +71,10 @@ const TodayList = (props) => {
               if (converted_name == "discovery_home__health") {
                 converted_name = "discovery_home_health";
               }
+              if (converted_name == "ae") {
+                converted_name = "a_e";
+              }
+
               for (let i = 0; i < elem.program_list.length; i++) {
                 let format = "HH:mm:00";
 

@@ -70,6 +70,9 @@ const TomorrowList = (props) => {
             if (converted_name == "discovery_home__health") {
               converted_name = "discovery_home_health";
             }
+            if (converted_name == "ae") {
+              converted_name = "a_e";
+            }
 
             let channel_slug = slugify(elem.channel_name);
 
