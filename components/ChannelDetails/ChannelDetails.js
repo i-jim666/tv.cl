@@ -27,31 +27,6 @@ const ChannelList = (props) => {
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
-
-  if(channel_name){
-    let name_arr = [];
-    if(channel_name.includes('-')){
-      name_arr = channel_name.split('-');
-    }
-    else{
-      name_arr.push(channel_name)
-    }
-    
-    for (let i = 0; i < name_arr.length; i++) {
-      name_arr[i] = capitalizeFirstLetter(name_arr[i])  
-    }
-    let channel_title = name_arr.join(' ');
-  
-    if(channel_title == 'A E'){
-      channel_title = 'A&E'
-    }
-    if(channel_title == 'Tvn'){
-      channel_title = 'TVN'
-    }
-    if(channel_title == 'Hbo'){
-      channel_title = 'HBO'
-    }
-  }
   
 
   function convertToFit(Text) {
@@ -61,6 +36,34 @@ const ChannelList = (props) => {
   }
 
   useEffect(() => {
+
+    if(channel_name){
+      let name_arr = [];
+      if(channel_name.includes('-')){
+        name_arr = channel_name.split('-');
+      }
+      else{
+        name_arr.push(channel_name)
+      }
+      
+      for (let i = 0; i < name_arr.length; i++) {
+        name_arr[i] = capitalizeFirstLetter(name_arr[i])  
+      }
+      let channel_title = name_arr.join(' ');
+    
+      if(channel_title == 'A E'){
+        channel_title = 'A&E'
+      }
+      if(channel_title == 'Tvn'){
+        channel_title = 'TVN'
+      }
+      if(channel_title == 'Hbo'){
+        channel_title = 'HBO'
+      }
+      if(channel_title == 'Axn'){
+        channel_title = 'AXN'
+      }
+    }
     
     try {
       let converted_name = convertToFit(channel_name);

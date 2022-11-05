@@ -36,6 +36,9 @@ const TomorrowList = (props) => {
       if(channel_name == 'Hbo'){
         channel_name = 'HBO'
       }
+      if(channel_name == 'Axn'){
+        channel_name = 'AXN'
+      }
     }
 
     try{
