@@ -16,7 +16,7 @@ export default function CookiePolicy() {
     <div className={`main__wrapper`}>
       
       <HeadGlobal
-        title = "TV.cl: Hoy en TV - Guía de TV de Chile"
+        title = "Política de cookies - TV.cl"
         description = "Mesa de TV para todos los canales. ¿Te preguntas qué hay en la televisión en este momento? ¿Buscas el horario de TV de mañana? TV.cl tiene una completa guía de TV para ti."
       />
 
@@ -26,7 +26,7 @@ export default function CookiePolicy() {
       <main className={`main`}>
         <Hero />
         <GenericContent
-          title = "Cookie policy"
+          title = "Política de cookies"
           description = {`Usamos anuncios a través de Google Adsense y estos anuncios están configurados para mostrar anuncios relevantes a nuestros visitantes. Google Adsense, a su vez, permite que varios proveedores de tecnología publicitaria acuerden el espacio publicitario en esta página. La lista completa de proveedores de tecnología publicitaria que certifican a Google se puede encontrar en la parte inferior de esta página, donde también están vinculados a información sobre su uso de datos.
 
           Los proveedores externos, incluido Google, utilizan cookies para mostrar anuncios basados ​​en las visitas anteriores de los usuarios a su sitio web u otros sitios web.
