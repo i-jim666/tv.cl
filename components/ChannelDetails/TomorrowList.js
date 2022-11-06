@@ -66,6 +66,9 @@ const TomorrowList = (props) => {
       if(channel_name == 'Tyc Sports'){
         channel_name = 'TyC Sports'
       }
+      if(channel_name == 'Ucv Tv'){
+        channel_name = 'UCV TV'
+      }
 
     }
 

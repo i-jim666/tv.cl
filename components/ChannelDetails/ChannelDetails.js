@@ -92,6 +92,9 @@ const ChannelDetails = (props) => {
       if(channel_title == 'Tyc Sports'){
         channel_title = 'TyC Sports'
       }
+      if(channel_title == 'Ucv Tv'){
+        channel_title = 'UCV TV'
+      }
       
       setChannelTitle(channel_title)
     }
