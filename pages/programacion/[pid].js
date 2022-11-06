@@ -14,6 +14,8 @@ import { useEffect, useState } from "react";
 
 export default function Programacion() {
   const router = useRouter();
+  const { query, isReady } = useRouter()
+
   const { pid } = router.query;
   const [search, setSearch] = useState("");
   const [tv_channel_name, setChannelName] = useState(pid);
@@ -84,14 +86,17 @@ export default function Programacion() {
         setChannelName(channel_title)
       }
 
-  },[tv_channel_name, pid])
+      
+    },[tv_channel_name, pid, router])
 
+    
   return (
     <div className={`main__wrapper`}>
+
       <HeadGlobal
         title={`${tv_channel_name} - La programación de TV de hoy`}
         description={`Consulta todos los programas, series, películas etc. que echan hoy y en los próximos días en ${tv_channel_name}.`}
-      />
+      />  
 
       <Header setSearch={setSearch} />
       <Header_Mobile setSearch={setSearch} />

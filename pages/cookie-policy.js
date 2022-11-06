@@ -27,7 +27,31 @@ export default function CookiePolicy() {
         <Hero />
         <GenericContent
           title = "Cookie policy"
-          description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          description = {`Usamos anuncios a través de Google Adsense y estos anuncios están configurados para mostrar anuncios relevantes a nuestros visitantes. Google Adsense, a su vez, permite que varios proveedores de tecnología publicitaria acuerden el espacio publicitario en esta página. La lista completa de proveedores de tecnología publicitaria que certifican a Google se puede encontrar en la parte inferior de esta página, donde también están vinculados a información sobre su uso de datos.
+
+          Los proveedores externos, incluido Google, utilizan cookies para mostrar anuncios basados ​​en las visitas anteriores de los usuarios a su sitio web u otros sitios web.
+          
+          Con la ayuda de las cookies publicitarias, Google y sus socios pueden mostrar anuncios basados ​​en las visitas de los usuarios a su sitio web y/u otros.
+          
+          Los usuarios de este sitio web pueden optar por no mostrar anuncios personalizados en Configuración de anuncios (enlace). (Alternativamente, los usuarios pueden optar por no recibir cookies de proveedores externos para anuncios personalizados visitando www.aboutads.info).
+          
+          Lea más sobre las cookies de Google aquí: https://support.google.com/adsense/answer/1348695
+          
+          Mediante el uso de este sitio web, se proporcionan datos en forma de cookies, entre otras cosas, a estos proveedores de tecnología publicitaria para poder presentar anuncios tan relevantes como sea posible.
+          
+          Los anuncios se adaptan al contenido de este sitio web y a su historial como usuario.
+          
+          TV.cl no almacena ningún dato personal sobre usted como visitante. Tampoco utilizamos ninguna herramienta en la que podamos averiguar quién es usted como persona. Sin embargo, usamos cookies que hacen que las imágenes y los scripts se carguen más rápido para que usted, como usuario, siempre obtenga el mejor tiempo de carga posible. Algo que puede ser bueno saber es que usamos anuncios de Google Adsense y estos anuncios usan herramientas de seguimiento diferentes a las nuestras, todo para que usted, como usuario, reciba los anuncios más relevantes posibles.
+          
+          Puede leer más sobre cómo funciona Google y su programa de publicidad visitando este enlace:
+          Cómo utiliza Google la información de los sitios web o las aplicaciones que utilizan nuestros servicios
+          
+          Colección de cookies (cookies)
+          Cuando visita TV.cl, cierta información se recopila mediante cookies. Una cookie es un archivo de texto que se almacena en su navegador. Una cookie puede contener, entre otras cosas, fechas, números o texto y se utiliza para obtener más información sobre nuestros usuarios, por ejemplo, para mostrar anuncios más relevantes.
+          
+          Además de eso, las cookies también se utilizan para guardar archivos de imagen y scripts de datos para que el tiempo de carga para su posible visita de regreso a TV.cl sea más rápido.
+          
+          Como usuario, siempre tiene la opción de bloquear las cookies, permitir las cookies o eliminar las cookies. Puede cambiar esto directamente en su navegador.`}
         />
       </main>
 
