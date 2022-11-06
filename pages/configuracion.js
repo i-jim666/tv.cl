@@ -15,7 +15,7 @@ export default function Settings() {
   return (
     <div className={`main__wrapper`}>
       <HeadGlobal
-        title = "TV.cl: Hoy en TV - Guía de TV de Chile"
+        title = "Configuracion - TV.cl"
         description = "Mesa de TV para todos los canales. ¿Te preguntas qué hay en la televisión en este momento? ¿Buscas el horario de TV de mañana? TV.cl tiene una completa guía de TV para ti."
       />
 
