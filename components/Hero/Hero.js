@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <div className={`hero ${styles.hero__bg}`} id='hero'>
       <div className="container">
-          <Image src={AdImg} alt='Ad image'></Image>
+          {/* <Image src={AdImg} alt='Ad image'></Image> */}
       </div>
     </div>
   )
