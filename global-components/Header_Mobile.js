@@ -116,8 +116,8 @@ const Header_Mobile = (props) => {
           <div className="nav_body">
             <Link href={process.env.NEXT_PUBLIC_DOMAIN_NAME}>
               <div className="item">
-                <Image src={HomeIcon} alt="Search icon" />
-                <span className="text">Programacion</span>
+                <Image width={24} height={24} src={HomeIcon} alt="Programicion icon" />
+                <span className="text">Programación</span>
               </div>
             </Link>
 
