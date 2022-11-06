@@ -424,3 +424,20 @@ main{
     }
   }
 }
+
+.search__box{
+  position: relative;
+ 
+  .reset_search{
+    display: flex;
+    position: absolute;
+    top: 11px;
+    right: 10px;
+    z-index: 99;
+    cursor: pointer;
+  }
+
+  input{
+    padding-right: 30px;
+  }
+}

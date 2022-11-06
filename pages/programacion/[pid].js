@@ -71,6 +71,7 @@ export default function Programacion() {
 
   return (
     <div className={`main__wrapper`}>
+
       <HeadGlobal
         title={`${
           tv_channel_name ? `${tv_channel_name} - ` : ""
@@ -78,7 +79,7 @@ export default function Programacion() {
         description={`Consulta todos los programas, series, películas etc. que echan hoy y en los próximos días en ${tv_channel_name}.`}
       />
  
-      <Header setSearch={setSearch} />
+      <Header setSearch={setSearch} search={search} />
       <Header_Mobile setSearch={setSearch} />
  
       <main className={`main`}>

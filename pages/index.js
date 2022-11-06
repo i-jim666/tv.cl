@@ -21,7 +21,7 @@ export default function Home() {
         description = "Mesa de TV para todos los canales. ¿Te preguntas qué hay en la televisión en este momento? ¿Buscas el horario de TV de mañana? TV.cl tiene una completa guía de TV para ti."
       />
 
-      <Header setSearch={setSearch} />
+      <Header setSearch={setSearch} search={search} />
       <Header_Mobile setSearch={setSearch} />
 
       <main className={`main`}>
