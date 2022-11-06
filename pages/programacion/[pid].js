@@ -17,7 +17,6 @@ export default function Programacion() {
   const { pid } = router.query;
   const [search, setSearch] = useState("");
   const [tv_channel_name, setChannelName] = useState(pid);
-  
 
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);

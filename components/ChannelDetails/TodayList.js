@@ -83,7 +83,7 @@ const TodayList = (props) => {
 
       var config = {
         method: "post",
-        url: "https://prod.api.tv.cl/programs/get-specific-channel-programs",
+        url: "https://api.tv.cl/programs/get-specific-channel-programs",
         headers: {
           "x-api-key": "odL9OThpGhapypWcIqGRma1gMjTAFeNa53HKBh6g",
           "Content-Type": "application/json",

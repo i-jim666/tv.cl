@@ -33,7 +33,7 @@ const TodayList = (props) => {
 
       var config = {
         // method: "POST",
-        url: "https://prod.api.tv.cl/today_programs",
+        url: "https://api.tv.cl/today_programs",
         // headers: {
         //   "x-api-key": "0jVCwT3KSf1YpiUwzpJr15GHFdSF0he83fSUDq7f",
         //   "Content-Type": "application/json",
