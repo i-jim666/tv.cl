@@ -9,7 +9,7 @@
 const path = require("path");
 const nextConfig = {
   // disable css-modules component styling
-  
+
   webpack(config) {
     config.module.rules.forEach((rule) => {
       const { oneOf } = rule;

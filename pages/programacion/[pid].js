@@ -85,7 +85,7 @@ export default function Programacion() {
         setChannelName(channel_title)
       }
 
-  },[tv_channel_name])
+  },[tv_channel_name, pid])
 
   return (
     <div className={`main__wrapper`}>
