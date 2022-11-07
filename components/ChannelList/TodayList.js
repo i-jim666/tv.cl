@@ -202,7 +202,7 @@ const TodayList = (props) => {
           if (Telecanal) {
             priorityList.push(Telecanal);
           }
-          console.log(withoutPriorityList, priorityList);
+
           setTodayList([...priorityList, ...withoutPriorityList]);
         })
         .catch(function (error) {
