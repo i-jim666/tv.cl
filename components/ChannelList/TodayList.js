@@ -125,30 +125,85 @@ const TodayList = (props) => {
                 }
               }
 
-              if (updatedProgramList.length > 0) {
-                let channel_slug = slugify(elem.channel_name);
+              // if (updatedProgramList.length > 0) {
+              let channel_slug = slugify(elem.channel_name);
 
-                if (channel_slug == "a&e") {
-                  channel_slug = "a-e";
-                }
-                if (channel_slug == "discovery-home-&-health") {
-                  channel_slug = "discovery-home-and-health";
-                }
-
-                items_arr.push({
-                  key: `${index}today`,
-                  swapIndex: index,
-                  logoLink: Logos[converted_name],
-                  channelName: elem.channel_name,
-                  channelLink: `${process.env.NEXT_PUBLIC_DOMAIN_NAME}/programacion/${channel_slug}`,
-                  programList: updatedProgramList,
-                  tomorrowList: false,
-                  checked: true,
-                });
+              if (channel_slug == "a&e") {
+                channel_slug = "a-e";
               }
+              if (channel_slug == "discovery-home-&-health") {
+                channel_slug = "discovery-home-and-health";
+              }
+
+              items_arr.push({
+                key: `${index}today`,
+                swapIndex: index,
+                logoLink: Logos[converted_name],
+                channelName: elem.channel_name,
+                channelLink: `${process.env.NEXT_PUBLIC_DOMAIN_NAME}/programacion/${channel_slug}`,
+                programList: updatedProgramList,
+                tomorrowList: false,
+                checked: true,
+              });
+              // }
             }
           });
-          setTodayList(items_arr);
+          const priorityList = [];
+          const withoutPriorityList = items_arr.filter(
+            (item) =>
+              item.channelName !== "Mega" &&
+              item.channelName !== "TVN" &&
+              item.channelName !== "Canal 13" &&
+              item.channelName !== "La Red" &&
+              item.channelName !== "Chilevisión" &&
+              item.channelName !== "CNN Chile" &&
+              item.channelName !== "TV+" &&
+              item.channelName !== "Telecanal"
+          );
+          const Chilevisión = items_arr.find(
+            (item) => item.channelName === "Chilevisión"
+          );
+          const Mega = items_arr.find((item) => item.channelName === "Mega");
+          const TVN = items_arr.find((item) => item.channelName === "TVN");
+          const Canal_13 = items_arr.find(
+            (item) => item.channelName === "Canal 13"
+          );
+          const La_Red = items_arr.find(
+            (item) => item.channelName === "La Red"
+          );
+          const TV_plus = items_arr.find((item) => item.channelName === "TV+");
+          const CNN_Chile = items_arr.find(
+            (item) => item.channelName === "CNN Chile"
+          );
+          const Telecanal = items_arr.find(
+            (item) => item.channelName === "Telecanal"
+          );
+          if (Chilevisión) {
+            priorityList.push(Chilevisión);
+          }
+          if (Mega) {
+            priorityList.push(Mega);
+          }
+          if (TVN) {
+            priorityList.push(TVN);
+          }
+          if (Canal_13) {
+            priorityList.push(Canal_13);
+          }
+          if (La_Red) {
+            priorityList.push(La_Red);
+          }
+          if (TV_plus) {
+            priorityList.push(TV_plus);
+          }
+          if (CNN_Chile) {
+            priorityList.push(CNN_Chile);
+          }
+          if (Telecanal) {
+            priorityList.push(Telecanal);
+          }
+          console.log(withoutPriorityList, priorityList);
+          setTodayList([...priorityList, ...withoutPriorityList]);
         })
         .catch(function (error) {
           console.log(error);
@@ -218,6 +273,9 @@ const TodayList = (props) => {
                   );
                 }
                 if (!isChannelExist) {
+                  return <React.Fragment key={nanoid()}></React.Fragment>;
+                }
+                if (isChannelExist?.programList?.length <= 0) {
                   return <React.Fragment key={nanoid()}></React.Fragment>;
                 }
                 return (
