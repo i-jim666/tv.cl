@@ -24,7 +24,7 @@ const Hero = () => {
 
     (window.adsbygoogle = window.adsbygoogle || []).push({})
 
-  }, [add_script])
+  }, [])
 
 
 
