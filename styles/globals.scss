@@ -441,3 +441,12 @@ main{
     padding-right: 30px;
   }
 }
+
+
+.settings__wrapper{
+  .channel_filter{
+    .tomorrow{
+      text-transform: unset;
+    }
+  }
+}

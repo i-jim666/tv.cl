@@ -147,5 +147,13 @@
             align-items: center;
         }
     }
+
+    .count{
+        display: none;
+    }
+    .name_count{
+        display: flex;
+        align-items: center;
+    }
 }
 
