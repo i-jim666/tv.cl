@@ -11,6 +11,8 @@ const HeadGlobal = (props) => {
         content="width=device-width, initial-scale=1, maximum-scale=1"
       ></meta>
 
+      <meta name="google-site-verification" content="CFNoO0lXABbi1ySiaoOsN5vbxsyT_pGekrgfeXXaXOM" />
+
       <meta property="og:title" content={props.title} />
       <meta property="og:description" content={props.description} />
       <meta property="og:url" content="https://tv.cl" />
