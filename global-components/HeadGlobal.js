@@ -16,7 +16,7 @@ const HeadGlobal = (props) => {
 
         <link rel="icon" href="/favicon.ico" />
 
-        {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1318984849974228" crossorigin="anonymous"></script> */}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1318984849974228" crossorigin="anonymous"></script>
     </Head>
   )
 }

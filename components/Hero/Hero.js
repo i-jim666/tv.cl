@@ -12,16 +12,6 @@ const Hero = () => {
   
 
   useEffect(()=>{
-
-    const installGoogleAds = () => {
-      const elem = document.createElement("script");
-      elem.src =
-        "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1318984849974228";
-      elem.async = true;
-      elem.defer = true;
-      elem.crossorigin = "anonymous";
-      document.head.insertBefore(elem, document.head.firstChild);
-    };
     
     if (window.screen.width < 600) {
       add_script = <ins className="adsbygoogle"
@@ -32,13 +22,9 @@ const Hero = () => {
                   data-full-width-responsive="true"></ins>
     }
 
-    installGoogleAds();
-    
     (window.adsbygoogle = window.adsbygoogle || []).push({})
 
   }, [add_script])
-
-  
 
 
 
