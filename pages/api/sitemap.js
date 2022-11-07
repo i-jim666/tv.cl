@@ -9,43 +9,37 @@ export default function handler(req, res) {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://www.tv.cl/acerca-de.js</loc>
+        <loc>https://www.tv.cl/acerca-de</loc>
         <lastmod>2022-11-07T16:20:14.608Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://www.tv.cl/channel-details.js</loc>
+        <loc>https://www.tv.cl/channel-details</loc>
         <lastmod>2022-11-07T16:20:14.608Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://www.tv.cl/configuracion.js</loc>
+        <loc>https://www.tv.cl/configuracion</loc>
         <lastmod>2022-11-07T16:20:14.608Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://www.tv.cl/index.js</loc>
+        <loc>https://www.tv.cl/index</loc>
         <lastmod>2022-11-07T16:20:14.608Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://www.tv.cl/politica-de-cookies.js</loc>
+        <loc>https://www.tv.cl/politica-de-cookies</loc>
         <lastmod>2022-11-07T16:20:14.608Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://www.tv.cl/programacion</loc>
-        <lastmod>2022-11-07T16:20:14.608Z</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>1.0</priority>
-    </url>
-    <url>
-        <loc>https://www.tv.cl/terms.js</loc>
+        <loc>https://www.tv.cl/terms</loc>
         <lastmod>2022-11-07T16:20:14.608Z</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
