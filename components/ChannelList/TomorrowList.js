@@ -79,6 +79,9 @@ const TomorrowList = (props) => {
             if (channel_slug == "a&e") {
               channel_slug = "a-e";
             }
+            if (channel_slug == "discovery-home-&-health") {
+              channel_slug = "discovery-home-and-health";
+            }
 
             items_arr.push({
               key: `${index}tomorrow`,
