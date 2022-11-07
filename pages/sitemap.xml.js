@@ -5,7 +5,7 @@ const Sitemap = () => {
 };
 
 export const getServerSideProps = async ({ res }) => {
-  const BASE_URL = process.env.NEXT_PUBLIC_DOMAIN_NAME;
+  const BASE_URL = "https://www.tv.cl";
 
   const staticPaths = fs
     .readdirSync("pages")
