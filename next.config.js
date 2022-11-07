@@ -27,6 +27,14 @@ const nextConfig = {
   images: {
     domains: ["image.tmdb.org"],
   },
+  async rewrites() {
+    return [
+      {
+        source: "/sitemap.xml",
+        destination: "/api/sitemap",
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
