@@ -38,40 +38,42 @@ const TodayList = (props) => {
       if (channel_name == "Hbo") {
         channel_name = "HBO";
       }
-      if(channel_name == 'Axn'){
-        channel_name = 'AXN'
+      if (channel_name == "Axn") {
+        channel_name = "AXN";
       }
-      if(channel_name == 'Fox Sports 3'){
-        channel_name = 'FOX Sports 3'
+      if (channel_name == "Fox Sports 3") {
+        channel_name = "FOX Sports 3";
       }
-      if(channel_name == 'Hbo 2'){
-        channel_name = 'HBO 2'
+      if (channel_name == "Hbo 2") {
+        channel_name = "HBO 2";
       }
-      if(channel_name == 'Cnn Chile'){
-        channel_name = 'CNN Chile'
+      if (channel_name == "Cnn Chile") {
+        channel_name = "CNN Chile";
       }
-      if(channel_name == '13c'){
-        channel_name = '13C'
+      if (channel_name == "13c") {
+        channel_name = "13C";
       }
-      if(channel_name == 'Tnt'){
-        channel_name = 'TNT'
+      if (channel_name == "Tnt") {
+        channel_name = "TNT";
       }
-      if(channel_name == 'Universal Tv'){
-        channel_name = 'Universal TV'
+      if (channel_name == "Universal Tv") {
+        channel_name = "Universal TV";
       }
-      if(channel_name == 'Fx'){
-        channel_name = 'FX'
+      if (channel_name == "Fx") {
+        channel_name = "FX";
       }
-      if(channel_name == 'Fox Sports Básico'){
-        channel_name = 'FOX Sports Básico'
+      if (channel_name == "Fox Sports Básico") {
+        channel_name = "FOX Sports Básico";
       }
-      if(channel_name == 'Tyc Sports'){
-        channel_name = 'TyC Sports'
+      if (channel_name == "Tyc Sports") {
+        channel_name = "TyC Sports";
       }
-      if(channel_name == 'Ucv Tv'){
-        channel_name = 'UCV TV'
+      if (channel_name == "Ucv Tv") {
+        channel_name = "UCV TV";
       }
-
+      if (channel_name == "Discovery Home And Health") {
+        channel_name = "Discovery Home & Health";
+      }
     }
 
     try {

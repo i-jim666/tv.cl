@@ -20,15 +20,12 @@ var img_logo, channel_logo;
 
 const ChannelDetails = (props) => {
   var channel_name = props.channelSlug;
-  
-  
-  var [channel_title, setChannelTitle] = useState('');
 
+  var [channel_title, setChannelTitle] = useState("");
 
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
-  
 
   function convertToFit(Text) {
     return Text.toLowerCase()
@@ -37,68 +34,69 @@ const ChannelDetails = (props) => {
   }
 
   useEffect(() => {
-
-    if(channel_name){
+    if (channel_name) {
       let name_arr = [];
-      if(channel_name.includes('-')){
-        name_arr = channel_name.split('-');
-      }
-      else{
-        name_arr.push(channel_name)
-      }
-      
-      for (let i = 0; i < name_arr.length; i++) {
-        name_arr[i] = capitalizeFirstLetter(name_arr[i])  
+      if (channel_name.includes("-")) {
+        name_arr = channel_name.split("-");
+      } else {
+        name_arr.push(channel_name);
       }
 
-      channel_title = name_arr.join(' ');
-    
-      if(channel_title == 'A E'){
-        channel_title = 'A&E'
+      for (let i = 0; i < name_arr.length; i++) {
+        name_arr[i] = capitalizeFirstLetter(name_arr[i]);
       }
-      if(channel_title == 'Tvn'){
-        channel_title = 'TVN'
+
+      channel_title = name_arr.join(" ");
+
+      if (channel_title == "A E") {
+        channel_title = "A&E";
       }
-      if(channel_title == 'Hbo'){
-        channel_title = 'HBO'
+      if (channel_title == "Tvn") {
+        channel_title = "TVN";
       }
-      if(channel_title == 'Axn'){
-        channel_title = 'AXN'
+      if (channel_title == "Hbo") {
+        channel_title = "HBO";
       }
-      if(channel_title == 'Fox Sports 3'){
-        channel_title = 'FOX Sports 3'
+      if (channel_title == "Axn") {
+        channel_title = "AXN";
       }
-      if(channel_title == 'Hbo 2'){
-        channel_title = 'HBO 2'
+      if (channel_title == "Fox Sports 3") {
+        channel_title = "FOX Sports 3";
       }
-      if(channel_title == 'Cnn Chile'){
-        channel_title = 'CNN Chile'
+      if (channel_title == "Hbo 2") {
+        channel_title = "HBO 2";
       }
-      if(channel_title == '13c'){
-        channel_title = '13C'
+      if (channel_title == "Cnn Chile") {
+        channel_title = "CNN Chile";
       }
-      if(channel_title == 'Tnt'){
-        channel_title = 'TNT'
+      if (channel_title == "13c") {
+        channel_title = "13C";
       }
-      if(channel_title == 'Universal Tv'){
-        channel_title = 'Universal TV'
+      if (channel_title == "Tnt") {
+        channel_title = "TNT";
       }
-      if(channel_title == 'Fx'){
-        channel_title = 'FX'
+      if (channel_title == "Universal Tv") {
+        channel_title = "Universal TV";
       }
-      if(channel_title == 'Fox Sports Básico'){
-        channel_title = 'FOX Sports Básico'
+      if (channel_title == "Fx") {
+        channel_title = "FX";
       }
-      if(channel_title == 'Tyc Sports'){
-        channel_title = 'TyC Sports'
+      if (channel_title == "Fox Sports Básico") {
+        channel_title = "FOX Sports Básico";
       }
-      if(channel_title == 'Ucv Tv'){
-        channel_title = 'UCV TV'
+      if (channel_title == "Tyc Sports") {
+        channel_title = "TyC Sports";
       }
-      
-      setChannelTitle(channel_title)
+      if (channel_title == "Ucv Tv") {
+        channel_title = "UCV TV";
+      }
+      if (channel_title == "Discovery Home And Health") {
+        channel_title = "Discovery Home & Health";
+      }
+
+      setChannelTitle(channel_title);
     }
-    
+
     try {
       let converted_name = convertToFit(channel_name);
 

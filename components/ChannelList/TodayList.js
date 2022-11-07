@@ -49,7 +49,7 @@ const TodayList = (props) => {
             let updatedProgramList = [];
             if (elem.program_list.length > 0) {
               let converted_name = convertToFit(elem.channel_name);
-              
+
               if (converted_name == "cdf_bsico") {
                 converted_name = "cdf_basico";
               }
@@ -130,6 +130,9 @@ const TodayList = (props) => {
 
                 if (channel_slug == "a&e") {
                   channel_slug = "a-e";
+                }
+                if (channel_slug == "discovery-home-&-health") {
+                  channel_slug = "discovery-home-and-health";
                 }
 
                 items_arr.push({
