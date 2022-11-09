@@ -12,7 +12,7 @@ const HeadGlobal = (props) => {
       ></meta>
 
       <meta name="google-site-verification" content="CFNoO0lXABbi1ySiaoOsN5vbxsyT_pGekrgfeXXaXOM" />
-
+      <meta name="robots" content="all" />
       <meta property="og:title" content={props.title} />
       <meta property="og:description" content={props.description} />
       <meta property="og:url" content="https://tv.cl" />
@@ -25,6 +25,10 @@ const HeadGlobal = (props) => {
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1318984849974228"
         crossOrigin="anonymous"
       ></script>
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-N008FYMRP3"></script>
+
+
     </Head>
   );
 };
