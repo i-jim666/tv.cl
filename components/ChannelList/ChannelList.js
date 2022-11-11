@@ -55,7 +55,7 @@ class ChannelList extends React.Component {
         <div className="container">
           <div className="title__filter">
             <div className={`${styles.flex_container}`}>
-              <h3 className={styles.title}>{this.props.title}</h3>
+              <h1 className={styles.title}>{this.props.title}</h1>
               <div className={`channel_filter ${styles.filter}`}>
                 <div
                   onClick={this.showToday}

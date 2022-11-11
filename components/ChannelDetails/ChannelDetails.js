@@ -138,10 +138,10 @@ const ChannelDetails = (props) => {
         <div className="container">
           <div className="title__filter">
             <div className={`flex_container`}>
-              <h3 className={`title`}>
+              <h1 className={`title`}>
                 <div className="logo">{renderLogo}</div>
                 {channel_title} Programación
-              </h3>
+              </h1>
               <div className={`channel_filter filter`}>
                 <div
                   onClick={() => {
