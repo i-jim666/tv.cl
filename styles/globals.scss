@@ -327,6 +327,9 @@ main{
     display: none;
   }
 
+  .flex_container > span{
+    min-width: 210px;
+  }
 
   &:first-child{
     .progress{
