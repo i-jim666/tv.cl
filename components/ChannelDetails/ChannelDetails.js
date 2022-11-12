@@ -93,6 +93,9 @@ const ChannelDetails = (props) => {
       if (channel_title == "Discovery Home And Health") {
         channel_title = "Discovery Home & Health";
       }
+      if (channel_title == "Cdf Básico") {
+        channel_title = "CDF Básico";
+      }
 
       setChannelTitle(channel_title);
     }

@@ -65,9 +65,11 @@ export default function Programacion() {
         channel_title = "TyC Sports";
       } else if (channel_title == "Discovery Home And Health") {
         channel_title = "Discovery Home & Health";
+      } else if (channel_title == "Cdf Básico") {
+        channel_title = "CDF Básico";
       }
 
-      setChannelName(channel_title);
+      setChannelName(channel_title)
     }
   }, [pid]);
 

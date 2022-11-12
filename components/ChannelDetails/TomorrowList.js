@@ -72,6 +72,9 @@ const TomorrowList = (props) => {
       if (channel_name == "Discovery Home And Health") {
         channel_name = "Discovery Home & Health";
       }
+      if (channel_name == "Cdf Básico") {
+        channel_name = "CDF Básico";
+      }
     }
 
     try {
