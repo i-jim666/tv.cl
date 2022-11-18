@@ -1,3 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable @next/next/no-sync-scripts */
+/* eslint-disable @next/next/next-script-for-ga */
 import Head from "next/head";
 import React, { useEffect } from "react";
 
@@ -11,7 +14,10 @@ const HeadGlobal = (props) => {
         content="width=device-width, initial-scale=1, maximum-scale=1"
       ></meta>
 
-      <meta name="google-site-verification" content="CFNoO0lXABbi1ySiaoOsN5vbxsyT_pGekrgfeXXaXOM" />
+      <meta
+        name="google-site-verification"
+        content="CFNoO0lXABbi1ySiaoOsN5vbxsyT_pGekrgfeXXaXOM"
+      />
       <meta name="robots" content="all" />
       <meta property="og:title" content={props.title} />
       <meta property="og:description" content={props.description} />
@@ -26,9 +32,23 @@ const HeadGlobal = (props) => {
         crossOrigin="anonymous"
       ></script>
 
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-N008FYMRP3"></script>
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-N008FYMRP3"
+      ></script>
 
-
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-N008FYMRP3', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
     </Head>
   );
 };
